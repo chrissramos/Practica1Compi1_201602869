@@ -129,6 +129,7 @@ public class Sintactico extends java_cup.runtime.lr_parser {
 
   
     int cantidadClaves = 0;
+    int posicionArr = 0;
     //public static ArrayList<Variable> arregloVariables = new ArrayList();
     //HtmlClase c = new HtmlClase();
     /*public static LinkedList<AcepErr> TablaErr=new LinkedList<AcepErr>();*/
@@ -388,7 +389,7 @@ int exponente(int exp){
           case 14: // REGG ::= llaveA NUEVOSREG llaveC 
             {
               String RESULT =null;
-
+		posicionArr =0;
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("REGG",8, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
           return CUP$Sintactico$result;
@@ -415,7 +416,15 @@ int exponente(int exp){
           case 17: // NREG ::= cadena 
             {
               String RESULT =null;
-
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
+		
+                String nuevaCadena = a.replace("\"", "");
+                posicionArr += 1;
+                Puente.buscarClave(nuevaCadena,posicionArr);
+                RESULT = a;
+            
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("NREG",10, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
           return CUP$Sintactico$result;
@@ -424,7 +433,13 @@ int exponente(int exp){
           case 18: // NREG ::= digito 
             {
               String RESULT =null;
-
+		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).left;
+		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
+		String b = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
+		
+                posicionArr += 1;
+                Puente.buscarClave(b,posicionArr);
+            RESULT=b; 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("NREG",10, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
           return CUP$Sintactico$result;

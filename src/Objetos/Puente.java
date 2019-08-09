@@ -6,6 +6,7 @@
 package Objetos;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,4 +16,10 @@ public class Puente {
     public static String variableConsola = "";
     public static ArrayList<Claves> arrClaves = new ArrayList();
     public static Claves c = new Claves();
+    
+    public static void buscarClave(String contenido, int posicion){
+        int nueva = posicion-1;
+        JOptionPane.showMessageDialog(null, "Se Agregara: " + contenido + "En posicion" + nueva );
+    }
+    
 }

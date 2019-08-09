@@ -21,6 +21,7 @@ import Objetos.Puente;
 parser code
 {:  
     int cantidadClaves = 0;
+    int posicionArr = 0;
     //public static ArrayList<Variable> arregloVariables = new ArrayList();
     //HtmlClase c = new HtmlClase();
     /*public static LinkedList<AcepErr> TablaErr=new LinkedList<AcepErr>();*/
@@ -155,11 +156,22 @@ REGISTROSS::= registros igual corA LISTAREG corC;
 LISTAREG::= LISTAREG REGG
             |REGG;
 
-REGG::= llaveA NUEVOSREG llaveC ;
+REGG::= llaveA NUEVOSREG llaveC 
+            {:posicionArr =0;:};
 
 NUEVOSREG::= NUEVOSREG coma NREG
              |NREG;
 
-NREG::= cadena
-        |digito; 
+NREG::= cadena:a
+            {:
+                String nuevaCadena = a.replace("\"", "");
+                posicionArr += 1;
+                Puente.buscarClave(nuevaCadena,posicionArr);
+                RESULT = a;
+            :}
+        |digito:b
+            {:
+                posicionArr += 1;
+                Puente.buscarClave(b,posicionArr);
+            RESULT=b; :}; 
 
