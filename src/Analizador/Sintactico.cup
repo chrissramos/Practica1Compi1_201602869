@@ -108,6 +108,7 @@ terminal String claves, registros;
 terminal String igual, llaveA, llaveC,corA, corC, coma; 
 
 non terminal String  INICIO, CONTENIDO, LISTAC, CLAVESS, REGISTROSS, LISTACLAVES, MASCLAVES;
+non terminal String LISTAREG, REGG, NUEVOSREG, NREG;
 
 
 start with INICIO;
@@ -147,4 +148,18 @@ LISTACLAVES::= LISTACLAVES:a coma MASCLAVES:b
                        RESULT = b; :};
 
 
+REGISTROSS::= registros igual corA LISTAREG corC;
+
+
+
+LISTAREG::= LISTAREG REGG
+            |REGG;
+
+REGG::= llaveA NUEVOSREG llaveC ;
+
+NUEVOSREG::= NUEVOSREG coma NREG
+             |NREG;
+
+NREG::= cadena
+        |digito; 
 
