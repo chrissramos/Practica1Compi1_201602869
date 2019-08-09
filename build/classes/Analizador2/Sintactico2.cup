@@ -1,0 +1,158 @@
+
+/*----------------------------------------------------------------------------
+--------------------- 1ra. Area: Codigo de Usuario
+----------------------------------------------------------------------------*/
+
+//-------> Importaciones 
+//-------> Paquetes  
+
+package Analizador2;
+
+import java_cup.runtime.Symbol;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import Objetos.Puente;
+import Objetos.Claves;
+
+
+
+//-------> Codigo para el parser, variables, metodos
+
+parser code
+{:  
+   
+        
+    int cantidadClaves = 0;
+    //public static ArrayList<Variable> arregloVariables = new ArrayList();
+    //HtmlClase c = new HtmlClase();
+    /*public static LinkedList<AcepErr> TablaErr=new LinkedList<AcepErr>();*/
+   // public static consolaE = "";
+    public String resultado = "";
+    //Metodo al que se llama automaticamente ante algun error sintactico
+    public void syntax_error(Symbol s)
+    {        
+        String lexema = s.value.toString();
+        int fila = s.right;
+        int columna = s.left;
+        
+        System.out.println("!!!!!!! Error Sintactico Recuperado !!!!!!!");
+        System.out.println("\t\tLexema: "+lexema);
+        System.out.println("\t\tFila: "+fila);
+        System.out.println("\t\tColumna: "+columna);
+       
+        //lista_errores.add(new ErrorT(lexema, fila, columna,"sintactico" ,"Simbolo no esperado"));
+        /*AcepErr datos =new AcepErr(lexema, "ERROR SINTACTICO" ,fila,columna,"Simbolo no esperado");
+         //   TablaErr.add(datos);
+            */
+           //  ErrorLS er = new ErrorLS("Sintactico","",lexema,fila,columna);
+             //HtmlClase.arrError.add(er);
+
+
+    }
+
+    //Metodo al que se llama en el momento en que ya no es posible una recuperacion de errores
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception
+    {        
+        String lexema = s.value.toString();
+        int fila = s.right;
+        int columna = s.left;
+        
+        System.out.println("!!!!!!! Error Sintactico, Panic Mode !!!!!!! ");
+        System.out.println("\t\tLexema: "+lexema);
+        System.out.println("\t\tFila: "+fila);
+        System.out.println("\t\tColumna: "+columna);
+
+       /*AcepErr datos =new AcepErr(lexema, "ERROR SINTACTICO" ,fila,columna,"Simbolo no esperado Error Fatal");
+                   TablaErr.add(datos);
+                  */
+        //lista_errores.add(new ErrorT(lexema, fila, columna,"sintactico" ,"Simbolo no esperado, Panic Mode"));
+    }
+
+    public void semantic(Symbol cur_token, String n) 
+    {
+        System.out.println("error semantico ");
+    }
+
+    public void semantic(String msg, Object obj) {}
+
+:}
+
+
+//-------> Codigo para las acciones gramaticales
+
+action code
+{:
+//METODOS Y VARIABLES QUE SOLO PUEDEN SER ACCEDIDAS DENTRO DEL PARSER
+int exponente(int exp){
+    int resultado= 1;
+    for(int i=1; i<exp; i++){
+        resultado = resultado *2;
+    }
+    return resultado;
+}
+
+:}  
+
+
+
+/*----------------------------------------------------------------------------
+--------------------- 2da. Area: Declaraciones
+----------------------------------------------------------------------------*/
+
+
+
+
+//-------> Simbolos
+terminal String identificador,digito,decimal,cadena;
+
+terminal String sumar, contar, archivo, contarSi, imprimir, numerico, promedio, graficar, obtenerSi, leerArchivo;
+
+terminal String igual, llaveA, llaveC,corA, corC, coma, puntocoma, parA, parC, menorque, mayorque, desigual, dospuntos; 
+
+non terminal String  INICIO, CONTENIDO, LISTAC, VARIABLE, FIMPRIMIR, LISTAIMP, DEFINICION, OBJETOIMP, MENSAJE;
+
+
+
+
+start with INICIO;
+
+INICIO::= CONTENIDO;
+
+CONTENIDO::= CONTENIDO LISTAC
+            |LISTAC;
+
+LISTAC::= DEFINICION
+            |FIMPRIMIR;
+
+
+FIMPRIMIR::= imprimir parA LISTAIMP:a parC puntocoma
+            {:
+                String consola = a +"\n";
+                System.err.println("IMPRIMIR: " + consola);
+                Puente.variableConsola += consola; 
+                :};
+
+LISTAIMP::= LISTAIMP:a coma OBJETOIMP:b
+                {:
+                    System.err.println("LISTA:: " + a + " "+b);
+                    RESULT = a + b;
+                :}
+            |OBJETOIMP:a
+                {:
+                    RESULT=a;
+                :};
+
+OBJETOIMP::= VARIABLE
+            |MENSAJE:b
+                {: RESULT = b; :};
+            
+
+MENSAJE::= cadena:a
+            {: System.err.println("entrando cadena> " + a);
+                String nuevaCadena = a.replace("\"", " ");
+                RESULT = nuevaCadena; :}
+            |digito:b
+                {: RESULT =  b; :};
+
+
+
