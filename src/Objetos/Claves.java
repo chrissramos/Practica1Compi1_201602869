@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Claves {
     String Clave = "";
-    ArrayList contenido;
+    ArrayList contenido = new ArrayList();
     
     public Claves(){}
 

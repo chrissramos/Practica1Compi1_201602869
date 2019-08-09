@@ -208,6 +208,7 @@ public class Ventana extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         if (seleccionar.showDialog(null,"Abrir")== JFileChooser.APPROVE_OPTION) {
+            
             archivo = seleccionar.getSelectedFile();
             if (archivo.getName().endsWith("rep")) {
                 String documento = abrirArchivo(archivo);
@@ -249,6 +250,7 @@ public class Ventana extends javax.swing.JFrame {
             Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, e);
         }
         clavesArr();
+        Puente.mostrarDatos();
     }//GEN-LAST:event_jButton2ActionPerformed
     public String abrirArchivo(File archivo){
         String documento="";
