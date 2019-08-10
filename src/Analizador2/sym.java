@@ -10,32 +10,33 @@ public class sym {
   /* terminals */
   public static final int cadena = 5;
   public static final int decimal = 4;
-  public static final int coma = 21;
-  public static final int promedio = 12;
-  public static final int archivo = 8;
-  public static final int imprimir = 10;
-  public static final int sumar = 6;
-  public static final int contarSi = 9;
-  public static final int numerico = 11;
-  public static final int corC = 20;
-  public static final int llaveC = 18;
+  public static final int coma = 22;
+  public static final int promedio = 13;
+  public static final int archivo = 9;
+  public static final int imprimir = 11;
+  public static final int sumar = 7;
+  public static final int contarSi = 10;
+  public static final int numerico = 12;
+  public static final int corC = 21;
+  public static final int llaveC = 19;
   public static final int digito = 3;
-  public static final int menorque = 25;
-  public static final int corA = 19;
-  public static final int igual = 16;
+  public static final int menorque = 26;
+  public static final int corA = 20;
+  public static final int igual = 17;
   public static final int EOF = 0;
-  public static final int llaveA = 17;
-  public static final int desigual = 27;
-  public static final int puntocoma = 22;
-  public static final int obtenerSi = 14;
-  public static final int mayorque = 26;
-  public static final int parC = 24;
+  public static final int llaveA = 18;
+  public static final int tcadena = 6;
+  public static final int desigual = 28;
+  public static final int puntocoma = 23;
+  public static final int obtenerSi = 15;
+  public static final int mayorque = 27;
+  public static final int parC = 25;
   public static final int error = 1;
-  public static final int contar = 7;
-  public static final int parA = 23;
-  public static final int leerArchivo = 15;
-  public static final int graficar = 13;
-  public static final int dospuntos = 28;
+  public static final int contar = 8;
+  public static final int parA = 24;
+  public static final int leerArchivo = 16;
+  public static final int graficar = 14;
+  public static final int dospuntos = 29;
   public static final int identificador = 2;
   public static final String[] terminalNames = new String[] {
   "EOF",
@@ -44,6 +45,7 @@ public class sym {
   "digito",
   "decimal",
   "cadena",
+  "tcadena",
   "sumar",
   "contar",
   "archivo",

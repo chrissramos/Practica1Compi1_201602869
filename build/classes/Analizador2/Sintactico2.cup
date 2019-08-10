@@ -103,14 +103,14 @@ int exponente(int exp){
 
 
 //-------> Simbolos
-terminal String identificador,digito,decimal,cadena;
+terminal String identificador,digito,decimal,cadena,tcadena;
 
 terminal String sumar, contar, archivo, contarSi, imprimir, numerico, promedio, graficar, obtenerSi, leerArchivo;
 
 terminal String igual, llaveA, llaveC,corA, corC, coma, puntocoma, parA, parC, menorque, mayorque, desigual, dospuntos; 
 
 non terminal String  INICIO, CONTENIDO, LISTAC, VARIABLE, FIMPRIMIR, LISTAIMP, DEFINICION, OBJETOIMP, MENSAJE;
-
+non terminal String ARCHIVODEF, ARCHIVO, DEF;
 
 
 
@@ -123,6 +123,7 @@ CONTENIDO::= CONTENIDO LISTAC
 
 LISTAC::= DEFINICION
             |FIMPRIMIR;
+           
 
 
 FIMPRIMIR::= imprimir parA LISTAIMP:a parC puntocoma
@@ -154,5 +155,11 @@ MENSAJE::= cadena:a
             |digito:b
                 {: RESULT =  b; :};
 
-
+DEFINICION::=archivo identificador:a igual leerArchivo parA cadena:b parC puntocoma
+            {:
+                
+                Puente.analizarDatos(a,b);
+             :}
+            |numerico identificador igual 
+            | tcadena identificador igual;
 

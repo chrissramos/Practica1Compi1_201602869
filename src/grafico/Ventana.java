@@ -247,7 +247,8 @@ public class Ventana extends javax.swing.JFrame {
                 new Lexico(new BufferedReader (new StringReader(texto.getText()))));
             sin.parse();
         }catch(Exception e){
-            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, e);
+            //Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
         }
         clavesArr();
         Puente.mostrarDatos();

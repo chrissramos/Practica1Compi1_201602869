@@ -88,6 +88,7 @@ Espacio = \t|\f|" "|\r|\n
 <YYINITIAL>"ObtenerSi" { System.out.println("ObtenerSi"); return new Symbol(sym.obtenerSi, yycolumn, yyline, yytext());}
 <YYINITIAL>"Imprimir" { System.out.println("Imprimir"); return new Symbol(sym.imprimir, yycolumn, yyline, yytext());}
 <YYINITIAL>"Graficar" { System.out.println("graficar"); return new Symbol(sym.graficar, yycolumn, yyline, yytext());}
+<YYINITIAL>"Cadena" { System.out.println("varcadena"); return new Symbol(sym.tcadena, yycolumn, yyline, yytext());}
 
 
 

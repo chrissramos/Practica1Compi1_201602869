@@ -14,14 +14,21 @@ import java.util.ArrayList;
 public class Claves {
     String Clave = "";
     ArrayList contenido = new ArrayList();
+    String id ="";
     
     public Claves(){}
 
-    public Claves(String Clave, ArrayList contenido) {
+    public Claves(String Clave, ArrayList contenido, String id) {
         this.Clave = Clave;
         this.contenido = contenido;
+        this.id = id;
     }
-    
+    public String getId(){
+        return id;
+    }
+    public void setId(String id){
+        this.id = id;
+    }
     public String getClave() {
         return Clave;
     }
