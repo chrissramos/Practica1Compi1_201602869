@@ -111,7 +111,7 @@ terminal String sumar, contar, archivo, contarSi, imprimir, numerico, promedio, 
 terminal String igual, llaveA, llaveC,corA, corC, coma, puntocoma, parA, parC, menorque, mayorque, desigual, dospuntos; 
 
 non terminal String  INICIO, CONTENIDO, LISTAC, VARIABLE, FIMPRIMIR, LISTAIMP, DEFINICION, OBJETOIMP, MENSAJE;
-non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION;
+non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION, FUNC, LISTADEFF;
 
 
 
@@ -157,21 +157,34 @@ MENSAJE::= cadena:a
             |digito:b
                 {: RESULT =  b; :};
 
-DEFINICION::=archivo identificador:a igual leerArchivo parA cadena:b parC puntocoma
+DEFINICION::= archivo identificador:a igual leerArchivo parA cadena:b parC puntocoma
             {:
                 
                 Puente.analizarDatos(a,b);
              :}
-            |numerico identificador:a igual FUNCION 
+            |numerico identificador:a igual FUNCION:b 
                 {:
-                    int posicion = Puente.arrVariables.size() -1;
-                    Variable v = (Variable)Puente.arrVariables.get(posicion);
-                    v.setIdentificador(a);
-                    //JOptionPane.showMessageDialog(null, "Se creo var: " + v.getTipo()+ " " + v.getIdentificador() + " " + v.getValorInt());
-                :}
+                    if(b.equals("suma")){
+                        int posicion = Puente.arrVariables.size() -1;
+                        Variable v = (Variable)Puente.arrVariables.get(posicion);
+                        v.setIdentificador(a);
+                        //JOptionPane.showMessageDialog(null, "Se creo var: " + v.getTipo()+ " " + v.getIdentificador() + " " + v.getValorInt());
+                     } else if(b.equals("contar")){
+                            
+                        }
+                     
+                            
+                    :}
             | tcadena identificador igual;
 
+/***
+
+FUNCION::= FUNCION:a FUNC:b
+            |FUNC:c; 
+
+***///
 FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
+
             {:
                 String resultado = Puente.sumar(a,b);
                 Variable v = new Variable();
@@ -181,12 +194,17 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
                 Puente.arrVariables.add(v);
                 //JOptionPane.showMessageDialog(null, "ESTAMOS EN FUNCION ABAJO");
                 //JOptionPane.showMessageDialog(null, "TIPO: " + v.getTipo() + " Id: "+ v.getIdentificador() + " valor: " + v.getValorInt());
-            :};
+                RESULT = "suma";
+            :}
+        |contar parA identificador parC puntocoma
+            {:RESULT="contar";:};
+            
 
 VARIABLE::= identificador:a
             {:
                 for(int i=0;i<Puente.arrVariables.size();i++){
                     Variable v = (Variable)Puente.arrVariables.get(i);
+                    JOptionPane.showMessageDialog(null, "Se buscara: "+ v.getTipo() + " y: " + v.getIdentificador() );
                     if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
                         JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
                         RESULT = Integer.toString(v.getValorInt());

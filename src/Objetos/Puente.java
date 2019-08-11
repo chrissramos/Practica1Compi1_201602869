@@ -35,7 +35,7 @@ public class Puente {
     
     public static void buscarClave(String contenido, int posicion){
         int nueva = posicion-1;
-        //JOptionPane.showMessageDialog(null, "Se Agregara: " + contenido + "En posicion" + nueva );
+       // JOptionPane.showMessageDialog(null, "Se Agregara: " + contenido + "En posicion" + nueva );
         
         Claves c = (Claves) arrClaves.get(nueva);
         //JOptionPane.showMessageDialog(null, "Se encontro la clave: " + c.getClave());
@@ -47,12 +47,13 @@ public class Puente {
     }
     public static void mostrarDatos(){
         JOptionPane.showMessageDialog(null, "Arreglo claves tiene: "+arrClaves.size() );
-        
+        /*
         for (int i = 0; i < arrClaves.size(); i++) {
             Claves c = (Claves)arrClaves.get(i);
             JOptionPane.showMessageDialog(null, c.getClave());
-        }
-        /*Claves c = (Claves) arrClaves.get(0);
+        }*/
+        
+        Claves c = (Claves) arrClaves.get(0);
         Claves c2 = (Claves) arrClaves.get(1);
         Claves c3 = (Claves) arrClaves.get(2);
         
@@ -62,7 +63,7 @@ public class Puente {
         JOptionPane.showMessageDialog(null, "En Clave:" + c.getClave() + " hay " + lista.size() + " pertenece a:" + c.getId());
         JOptionPane.showMessageDialog(null, "En Clave:" + c2.getClave() + " hay " + lista2.size() + " pertenece a:" + c2.getId());
         JOptionPane.showMessageDialog(null, "En Clave:" + c3.getClave() + " hay " + lista3.size() + " pertenece a:" + c3.getId());
-        */
+        
         
     }
     
@@ -129,6 +130,12 @@ public class Puente {
             
         }
         
+        
+        return resultado;
+    }
+    
+    public static String contar(String identificador){
+        String resultado = "";
         
         return resultado;
     }
