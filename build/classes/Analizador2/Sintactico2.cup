@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Objetos.Puente;
 import Objetos.Claves;
+import Objetos.Variable;
 
 
 
@@ -110,7 +111,7 @@ terminal String sumar, contar, archivo, contarSi, imprimir, numerico, promedio, 
 terminal String igual, llaveA, llaveC,corA, corC, coma, puntocoma, parA, parC, menorque, mayorque, desigual, dospuntos; 
 
 non terminal String  INICIO, CONTENIDO, LISTAC, VARIABLE, FIMPRIMIR, LISTAIMP, DEFINICION, OBJETOIMP, MENSAJE;
-non terminal String ARCHIVODEF, ARCHIVO, DEF;
+non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION;
 
 
 
@@ -143,7 +144,8 @@ LISTAIMP::= LISTAIMP:a coma OBJETOIMP:b
                     RESULT=a;
                 :};
 
-OBJETOIMP::= VARIABLE
+OBJETOIMP::= VARIABLE:a
+                {:RESULT=a;:}
             |MENSAJE:b
                 {: RESULT = b; :};
             
@@ -160,6 +162,34 @@ DEFINICION::=archivo identificador:a igual leerArchivo parA cadena:b parC puntoc
                 
                 Puente.analizarDatos(a,b);
              :}
-            |numerico identificador igual 
+            |numerico identificador:a igual FUNCION 
+                {:
+                    int posicion = Puente.arrVariables.size() -1;
+                    Variable v = (Variable)Puente.arrVariables.get(posicion);
+                    v.setIdentificador(a);
+                    //JOptionPane.showMessageDialog(null, "Se creo var: " + v.getTipo()+ " " + v.getIdentificador() + " " + v.getValorInt());
+                :}
             | tcadena identificador igual;
 
+FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
+            {:
+                String resultado = Puente.sumar(a,b);
+                Variable v = new Variable();
+                //v.setIdentificador(a);
+                v.setTipo("Numerico");
+                v.setValorInt(Integer.parseInt(resultado));
+                Puente.arrVariables.add(v);
+                //JOptionPane.showMessageDialog(null, "ESTAMOS EN FUNCION ABAJO");
+                //JOptionPane.showMessageDialog(null, "TIPO: " + v.getTipo() + " Id: "+ v.getIdentificador() + " valor: " + v.getValorInt());
+            :};
+
+VARIABLE::= identificador:a
+            {:
+                for(int i=0;i<Puente.arrVariables.size();i++){
+                    Variable v = (Variable)Puente.arrVariables.get(i);
+                    if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
+                        JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
+                        RESULT = Integer.toString(v.getValorInt());
+                    }
+                }
+            :};

@@ -29,6 +29,7 @@ public class Puente {
     public static String contenidoDat = "";
     public static String idTemp = "";
     public static ArrayList<Claves> arrClaves = new ArrayList();
+    public static ArrayList<Variable> arrVariables = new ArrayList();
     
     public static Claves c = new Claves();
     
@@ -42,16 +43,26 @@ public class Puente {
         c.id = idTemp;
         
         //atributo id de claves sera el id de la variable a la hora de ser credo
-        
+        //FALTA VACIAR VARIABLE IDTEMP CUANDO SE TERMINA DE CREAR LA VARIABLE ARCHIVO
     }
     public static void mostrarDatos(){
         JOptionPane.showMessageDialog(null, "Arreglo claves tiene: "+arrClaves.size() );
-        Claves c = (Claves) arrClaves.get(0);
+        
+        for (int i = 0; i < arrClaves.size(); i++) {
+            Claves c = (Claves)arrClaves.get(i);
+            JOptionPane.showMessageDialog(null, c.getClave());
+        }
+        /*Claves c = (Claves) arrClaves.get(0);
         Claves c2 = (Claves) arrClaves.get(1);
+        Claves c3 = (Claves) arrClaves.get(2);
+        
         ArrayList lista2 = c2.getContenido();
         ArrayList lista = c.getContenido();
+        ArrayList lista3 = c3.getContenido();
         JOptionPane.showMessageDialog(null, "En Clave:" + c.getClave() + " hay " + lista.size() + " pertenece a:" + c.getId());
         JOptionPane.showMessageDialog(null, "En Clave:" + c2.getClave() + " hay " + lista2.size() + " pertenece a:" + c2.getId());
+        JOptionPane.showMessageDialog(null, "En Clave:" + c3.getClave() + " hay " + lista3.size() + " pertenece a:" + c3.getId());
+        */
         
     }
     
@@ -86,8 +97,40 @@ public class Puente {
         }catch(Exception e){
             e.printStackTrace();
         }
-        mostrarDatos();
+        //mostrarDatos();
         
+    }
+    
+    
+    public static String sumar(String identificador, String cadena){
+        int sumaTotal = 0;
+        String resultado= "";
+        int edadInt = 0;
+        String clave = cadena.replace("\"", "");
+        JOptionPane.showMessageDialog(null, "Se sumaran: " + clave + " en: " + identificador);
+        for (int i = 0; i < arrClaves.size(); i++) {
+            //JOptionPane.showMessageDialog(null, "entro a for");
+            Claves c = (Claves) arrClaves.get(i);
+            if (c.getClave().equals(clave)) {
+                
+                ArrayList listaC = c.getContenido();
+                for (int j = 0; j < listaC.size(); j++) {
+                    String edadString = (String) listaC.get(j);
+                    edadInt = Integer.parseInt(edadString);
+                    //JOptionPane.showMessageDialog(null, "Dato a sumar:" +edadInt);
+                    sumaTotal += edadInt;
+                }
+                resultado = Integer.toString(sumaTotal);
+                //JOptionPane.showMessageDialog(null, "Suma total: " + resultado);
+                //JOptionPane.showMessageDialog(null, "Se encontraron: " + listaC.size() + " en: " + clave);
+                //String contenidoString = (String) listaC.get(i);
+                //JOptionPane.showMessageDialog(null, "Dato a sumar:" +contenidoString);
+            }
+            
+        }
+        
+        
+        return resultado;
     }
     
 }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Objetos.Puente;
 import Objetos.Claves;
+import Objetos.Variable;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -35,12 +36,12 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\020\000\002\002\004\000\002\002\003\000\002\003" +
+    "\000\022\000\002\002\004\000\002\002\003\000\002\003" +
     "\004\000\002\003\003\000\002\004\003\000\002\004\003" +
     "\000\002\006\007\000\002\007\005\000\002\007\003\000" +
     "\002\011\003\000\002\011\003\000\002\012\003\000\002" +
-    "\012\003\000\002\010\012\000\002\010\005\000\002\010" +
-    "\005" });
+    "\012\003\000\002\010\012\000\002\010\006\000\002\010" +
+    "\005\000\002\016\011\000\002\005\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -48,30 +49,35 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\042\000\012\010\007\013\013\015\012\016\006\001" +
+    "\000\053\000\012\010\007\013\013\015\012\016\006\001" +
     "\002\000\014\002\ufffe\010\ufffe\013\ufffe\015\ufffe\016\ufffe" +
     "\001\002\000\014\002\ufffc\010\ufffc\013\ufffc\015\ufffc\016" +
-    "\ufffc\001\002\000\004\004\043\001\002\000\004\004\041" +
-    "\001\002\000\004\002\040\001\002\000\014\002\000\010" +
+    "\ufffc\001\002\000\004\004\044\001\002\000\004\004\042" +
+    "\001\002\000\004\002\041\001\002\000\014\002\000\010" +
     "\007\013\013\015\012\016\006\001\002\000\004\032\024" +
     "\001\002\000\004\004\015\001\002\000\014\002\ufffd\010" +
     "\ufffd\013\ufffd\015\ufffd\016\ufffd\001\002\000\004\023\016" +
     "\001\002\000\004\022\017\001\002\000\004\032\020\001" +
     "\002\000\004\007\021\001\002\000\004\033\022\001\002" +
     "\000\004\031\023\001\002\000\014\002\ufff4\010\ufff4\013" +
-    "\ufff4\015\ufff4\016\ufff4\001\002\000\006\005\025\007\027" +
-    "\001\002\000\006\030\ufff5\033\ufff5\001\002\000\006\030" +
-    "\ufff9\033\ufff9\001\002\000\006\030\ufff6\033\ufff6\001\002" +
-    "\000\006\030\033\033\034\001\002\000\006\030\ufff8\033" +
-    "\ufff8\001\002\000\006\030\ufff7\033\ufff7\001\002\000\006" +
-    "\005\025\007\027\001\002\000\004\031\035\001\002\000" +
-    "\014\002\ufffb\010\ufffb\013\ufffb\015\ufffb\016\ufffb\001\002" +
-    "\000\006\030\ufffa\033\ufffa\001\002\000\014\002\uffff\010" +
-    "\uffff\013\uffff\015\uffff\016\uffff\001\002\000\004\002\001" +
-    "\001\002\000\004\023\042\001\002\000\014\002\ufff2\010" +
-    "\ufff2\013\ufff2\015\ufff2\016\ufff2\001\002\000\004\023\044" +
-    "\001\002\000\014\002\ufff3\010\ufff3\013\ufff3\015\ufff3\016" +
-    "\ufff3\001\002" });
+    "\ufff4\015\ufff4\016\ufff4\001\002\000\010\004\030\005\025" +
+    "\007\027\001\002\000\006\030\ufff5\033\ufff5\001\002\000" +
+    "\006\030\ufff9\033\ufff9\001\002\000\006\030\ufff6\033\ufff6" +
+    "\001\002\000\006\030\ufff0\033\ufff0\001\002\000\006\030" +
+    "\034\033\035\001\002\000\006\030\ufff8\033\ufff8\001\002" +
+    "\000\006\030\ufff7\033\ufff7\001\002\000\010\004\030\005" +
+    "\025\007\027\001\002\000\004\031\036\001\002\000\014" +
+    "\002\ufffb\010\ufffb\013\ufffb\015\ufffb\016\ufffb\001\002\000" +
+    "\006\030\ufffa\033\ufffa\001\002\000\014\002\uffff\010\uffff" +
+    "\013\uffff\015\uffff\016\uffff\001\002\000\004\002\001\001" +
+    "\002\000\004\023\043\001\002\000\014\002\ufff2\010\ufff2" +
+    "\013\ufff2\015\ufff2\016\ufff2\001\002\000\004\023\045\001" +
+    "\002\000\004\011\047\001\002\000\014\002\ufff3\010\ufff3" +
+    "\013\ufff3\015\ufff3\016\ufff3\001\002\000\004\032\050\001" +
+    "\002\000\004\004\051\001\002\000\004\030\052\001\002" +
+    "\000\004\007\053\001\002\000\004\033\054\001\002\000" +
+    "\004\031\055\001\002\000\014\002\ufff1\010\ufff1\013\ufff1" +
+    "\015\ufff1\016\ufff1\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -79,19 +85,22 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\042\000\014\002\007\003\010\004\003\006\004\010" +
+    "\000\053\000\014\002\007\003\010\004\003\006\004\010" +
     "\013\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\010\004" +
-    "\036\006\004\010\013\001\001\000\002\001\001\000\002" +
+    "\037\006\004\010\013\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\012\005\030\007" +
-    "\027\011\025\012\031\001\001\000\002\001\001\000\002" +
+    "\000\002\001\001\000\002\001\001\000\012\005\031\007" +
+    "\030\011\025\012\032\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\010\005\030\011\035\012\031" +
-    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
+    "\001\000\002\001\001\000\002\001\001\000\010\005\031" +
+    "\011\036\012\032\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\002\001\001" });
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\004\016\045\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -334,7 +343,10 @@ int exponente(int exp){
           case 9: // OBJETOIMP ::= VARIABLE 
             {
               String RESULT =null;
-
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.peek()).value;
+		RESULT=a;
               CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("OBJETOIMP",7, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
             }
           return CUP$Sintactico2$result;
@@ -396,11 +408,19 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 14: // DEFINICION ::= numerico identificador igual 
+          case 14: // DEFINICION ::= numerico identificador igual FUNCION 
             {
               String RESULT =null;
-
-              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("DEFINICION",6, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).value;
+		
+                    int posicion = Puente.arrVariables.size() -1;
+                    Variable v = (Variable)Puente.arrVariables.get(posicion);
+                    v.setIdentificador(a);
+                    //JOptionPane.showMessageDialog(null, "Se creo var: " + v.getTipo()+ " " + v.getIdentificador() + " " + v.getValorInt());
+                
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("DEFINICION",6, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-3)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
             }
           return CUP$Sintactico2$result;
 
@@ -410,6 +430,50 @@ int exponente(int exp){
               String RESULT =null;
 
               CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("DEFINICION",6, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+            }
+          return CUP$Sintactico2$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 16: // FUNCION ::= sumar parA identificador coma cadena parC puntocoma 
+            {
+              String RESULT =null;
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).value;
+		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
+		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).right;
+		String b = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).value;
+		
+                String resultado = Puente.sumar(a,b);
+                Variable v = new Variable();
+                //v.setIdentificador(a);
+                v.setTipo("Numerico");
+                v.setValorInt(Integer.parseInt(resultado));
+                Puente.arrVariables.add(v);
+                //JOptionPane.showMessageDialog(null, "ESTAMOS EN FUNCION ABAJO");
+                //JOptionPane.showMessageDialog(null, "TIPO: " + v.getTipo() + " Id: "+ v.getIdentificador() + " valor: " + v.getValorInt());
+            
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("FUNCION",12, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-6)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+            }
+          return CUP$Sintactico2$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 17: // VARIABLE ::= identificador 
+            {
+              String RESULT =null;
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.peek()).value;
+		
+                for(int i=0;i<Puente.arrVariables.size();i++){
+                    Variable v = (Variable)Puente.arrVariables.get(i);
+                    if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
+                        JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
+                        RESULT = Integer.toString(v.getValorInt());
+                    }
+                }
+            
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("VARIABLE",3, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
             }
           return CUP$Sintactico2$result;
 
