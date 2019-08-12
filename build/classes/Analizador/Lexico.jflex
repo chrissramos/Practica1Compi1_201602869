@@ -49,10 +49,11 @@ letra = [a-zA-ZñÑ]
 identificador = {letra}+({letra}|{digito}|"_")*   
 cadena = "\""[^\"]*"\""
 Espacio = \t|\f|" "|\r|\n
+ComentarioSimple=[/][/](([^\n]+)?)
+ComentarioMultiple=([\/][\*])(([\s]|[^\n]?)*)([\*][\/])
 
 //-------> Estados    EN ORDEN
-%state COMENT_SIMPLE
-%state COMENT_MULTI
+
 
 
 %%
@@ -64,14 +65,7 @@ Espacio = \t|\f|" "|\r|\n
 
 
 
-<YYINITIAL> "/*"                {yybegin(COMENT_MULTI);}     // Si la entrada es un comentario inicia aqui
-<COMENT_MULTI> "*/"             {yybegin(YYINITIAL);}        // Si se acaba el comentario vuelve a YYINITIAL
-<COMENT_MULTI> .                {}
-<COMENT_MULTI> [ \t\r\n\f]      {}
 
-<YYINITIAL> "//"                {yybegin(COMENT_SIMPLE);}   // Si la entrada es comentario simple inicia aqui
-<COMENT_SIMPLE> [^"\n"]         {}                          // 
-<COMENT_SIMPLE> "\n"            {yybegin(YYINITIAL);}       // aqui sale del estado
 
 
 //-------> Palabras Reservas
@@ -102,6 +96,8 @@ Espacio = \t|\f|" "|\r|\n
 <YYINITIAL> {WhiteSpace} {}
 <YYINITIAL> {Espacio} {}
 <YYINITIAL> {Terminacion_Linea} {}
+<YYINITIAL> {ComentarioSimple} {}
+<YYINITIAL> {ComentarioMultiple} {}
 
 
 [ \t\r\n\f]+                 {/* ignore white space. */ }
