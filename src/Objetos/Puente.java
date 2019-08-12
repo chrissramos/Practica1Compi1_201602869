@@ -135,6 +135,37 @@ public class Puente {
         return resultado;
     }
     
+    public static String promedio(String identificador, String cadena){
+        ArrayList prom = new ArrayList();
+        String resultado33= "";
+        double promedioTotal = 0.0;
+        int contadorArr =0;
+        String clave = cadena.replace("\"", "");
+        for (int i = 0; i <arrClaves.size(); i++) {
+            Claves c = (Claves) arrClaves.get(i);
+            if (c.getClave().equals(clave) && c.getId().equals(identificador)) {
+                ArrayList listaC = c.getContenido();
+                for (int j = 0; j < listaC.size(); j++) {
+                    String datoS = (String) listaC.get(j);
+                    int datoint = Integer.parseInt(datoS);
+                    prom.add(datoint);
+                }
+            }
+        }
+        if(prom.size()>0){
+            for (int i = 0; i < prom.size(); i++) {
+                contadorArr += (int)prom.get(i);
+            }
+            
+            promedioTotal = (double)contadorArr/prom.size();
+            
+            //JOptionPane.showMessageDialog(null,"PROMEDIO: " + promedioTotal );
+        }
+        resultado33 = String.valueOf(promedioTotal);
+        JOptionPane.showMessageDialog(null,"PROMEDIO ENVIADO: " + resultado33 );
+        return resultado33;
+    }
+    
     public static String contar(String identificador){
         String resultado = "";
         int contador = 0;

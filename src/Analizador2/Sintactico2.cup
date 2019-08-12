@@ -173,6 +173,10 @@ DEFINICION::= archivo identificador:a igual leerArchivo parA cadena:b parC punto
                             int posicion = Puente.arrVariables.size() -1;
                             Variable v2 = (Variable)Puente.arrVariables.get(posicion);
                             v2.setIdentificador(a);
+                        }else if(b.equals("promedio")){
+                            int posicion = Puente.arrVariables.size() -1;
+                            Variable v3 = (Variable)Puente.arrVariables.get(posicion);
+                            v3.setIdentificador(a);
                         }
                      
                             
@@ -205,17 +209,31 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
                 v2.setTipo("Numerico");
                 v2.setValorInt(Integer.parseInt(resultado2));
                 Puente.arrVariables.add(v2);
-                RESULT="contar";:};
+                RESULT="contar";:}
+        |promedio parA identificador:e coma cadena:f parC puntocoma
+            {:
+                String resultado3 = Puente.promedio(e,f);
+                JOptionPane.showMessageDialog(null,"PROMEDIO RECIBIDO: " + resultado3 );
+                Variable v3 = new Variable();
+                v3.setTipo("Double");
+                v3.setValorString(resultado3);
+                Puente.arrVariables.add(v3);
+                RESULT = "promedio";
+            :};
             
 
 VARIABLE::= identificador:a
             {:
                 for(int i=0;i<Puente.arrVariables.size();i++){
                     Variable v = (Variable)Puente.arrVariables.get(i);
-                    JOptionPane.showMessageDialog(null, "Se buscara: "+ v.getTipo() + " y: " + v.getIdentificador() );
+                    //JOptionPane.showMessageDialog(null, "Se buscara: "+ v.getTipo() + " y: " + v.getIdentificador() );
                     if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
-                        JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
+                        //JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
                         RESULT = Integer.toString(v.getValorInt());
+                    }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
+                        JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorString());
+                          RESULT = v.getValorString();  
                     }
+                    
                 }
             :};
