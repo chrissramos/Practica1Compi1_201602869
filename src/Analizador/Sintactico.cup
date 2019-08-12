@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import Objetos.Claves;
 import Objetos.Puente;
+import Objetos.Variable;
 
 
 

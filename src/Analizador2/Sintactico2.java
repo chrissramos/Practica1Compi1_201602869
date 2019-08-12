@@ -429,7 +429,11 @@ int exponente(int exp){
                         Variable v = (Variable)Puente.arrVariables.get(posicion);
                         v.setIdentificador(a);
                         //JOptionPane.showMessageDialog(null, "Se creo var: " + v.getTipo()+ " " + v.getIdentificador() + " " + v.getValorInt());
-                     }
+                     } else if(b.equals("contar")){
+                            int posicion = Puente.arrVariables.size() -1;
+                            Variable v2 = (Variable)Puente.arrVariables.get(posicion);
+                            v2.setIdentificador(a);
+                        }
                      
                             
                     
@@ -475,7 +479,16 @@ int exponente(int exp){
           case 17: // FUNCION ::= contar parA identificador parC puntocoma 
             {
               String RESULT =null;
-		RESULT="contar";
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).value;
+		
+                String resultado2 = Puente.contar(a);
+                Variable v2 = new Variable();
+                v2.setTipo("Numerico");
+                v2.setValorInt(Integer.parseInt(resultado2));
+                Puente.arrVariables.add(v2);
+                RESULT="contar";
               CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("FUNCION",12, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
             }
           return CUP$Sintactico2$result;

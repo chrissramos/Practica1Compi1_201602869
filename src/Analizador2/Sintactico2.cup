@@ -170,7 +170,9 @@ DEFINICION::= archivo identificador:a igual leerArchivo parA cadena:b parC punto
                         v.setIdentificador(a);
                         //JOptionPane.showMessageDialog(null, "Se creo var: " + v.getTipo()+ " " + v.getIdentificador() + " " + v.getValorInt());
                      } else if(b.equals("contar")){
-                            
+                            int posicion = Puente.arrVariables.size() -1;
+                            Variable v2 = (Variable)Puente.arrVariables.get(posicion);
+                            v2.setIdentificador(a);
                         }
                      
                             
@@ -196,8 +198,14 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
                 //JOptionPane.showMessageDialog(null, "TIPO: " + v.getTipo() + " Id: "+ v.getIdentificador() + " valor: " + v.getValorInt());
                 RESULT = "suma";
             :}
-        |contar parA identificador parC puntocoma
-            {:RESULT="contar";:};
+        |contar parA identificador:a parC puntocoma
+            {:
+                String resultado2 = Puente.contar(a);
+                Variable v2 = new Variable();
+                v2.setTipo("Numerico");
+                v2.setValorInt(Integer.parseInt(resultado2));
+                Puente.arrVariables.add(v2);
+                RESULT="contar";:};
             
 
 VARIABLE::= identificador:a

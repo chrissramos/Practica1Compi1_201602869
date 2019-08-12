@@ -14,7 +14,7 @@ public class Variable {
     String valorString = "";
     String tipo = "";
     int valorInt = 0;
-
+    
     public Variable() {
     }
     public Variable(String identificador, String tipo, String valorString){

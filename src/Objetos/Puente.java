@@ -104,15 +104,17 @@ public class Puente {
     
     
     public static String sumar(String identificador, String cadena){
+        
         int sumaTotal = 0;
         String resultado= "";
         int edadInt = 0;
         String clave = cadena.replace("\"", "");
-        JOptionPane.showMessageDialog(null, "Se sumaran: " + clave + " en: " + identificador);
+        //JOptionPane.showMessageDialog(null, "Se sumaran: " + clave + " en: " + identificador);
         for (int i = 0; i < arrClaves.size(); i++) {
             //JOptionPane.showMessageDialog(null, "entro a for");
             Claves c = (Claves) arrClaves.get(i);
-            if (c.getClave().equals(clave)) {
+            //JOptionPane.showMessageDialog(null, "ahorita: " + c.getClave() +" ID: " +  c.getId());
+            if (c.getClave().equals(clave) && c.getId().equals(identificador)) {
                 
                 ArrayList listaC = c.getContenido();
                 for (int j = 0; j < listaC.size(); j++) {
@@ -130,13 +132,21 @@ public class Puente {
             
         }
         
-        
         return resultado;
     }
     
     public static String contar(String identificador){
         String resultado = "";
-        
+        int contador = 0;
+        for (int i = 0; i < arrClaves.size(); i++) {
+            Claves c = (Claves) arrClaves.get(i);
+            if (c.getId().equals(identificador)) {
+                ArrayList listaC = c.getContenido();
+                contador = listaC.size();
+            }
+        }
+        ///JOptionPane.showMessageDialog(null, "REGISTROS en:" + identificador +" son:" + contador);
+        resultado = Integer.toString(contador);
         return resultado;
     }
     
