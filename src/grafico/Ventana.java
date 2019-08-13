@@ -20,6 +20,10 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import Objetos.Puente;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -169,19 +173,57 @@ public class Ventana extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         //primero abrir el archivo, guardar nombre, el contenido del txt meterlo a un textarea
-        if (seleccionar.showDialog(null,"Abrir")== JFileChooser.APPROVE_OPTION) {
-            archivo = seleccionar.getSelectedFile();
-            if (archivo.getName().endsWith("dat")) {
-                String documento = abrirArchivo(archivo);
-                String titulo = seleccionar.getName(archivo);
+        File f;
+        FileReader lectorArchivo;
+
+//        if (seleccionar.showDialog(null,"Abrir")== JFileChooser.APPROVE_OPTION) {
+//            archivo = seleccionar.getSelectedFile();
+//            if (archivo.getName().endsWith("dat")) {
+//                String documento = abrirArchivo(archivo);
+//                String titulo = seleccionar.getName(archivo);
+//                TextArea txtArea = new TextArea();
+//                txtArea.setText(documento);
+//                panelPrincipal.addTab(titulo, txtArea);
+//            }else{
+//                        JOptionPane.showMessageDialog(null, "Archivo no compatible");
+//            }
+//            
+//                    
+//        }
+        
+        if(seleccionar.showDialog(null, "Abrir") == JFileChooser.APPROVE_OPTION){
+            //archivo = seleccionar.getSelectedFile();
+            try{
+                
+                f = seleccionar.getSelectedFile();
+                JOptionPane.showMessageDialog(null, "Seabrrira: " + f.getName());
+                lectorArchivo = new FileReader(f);
+                BufferedReader br = new BufferedReader(lectorArchivo);
+                //BufferedReader br2 = new BufferedReader(new InputStreamReader(seleccionar.getSelectedFile(), "ISO-8859-1"));
+                String lectura = "";
+                String aux="";
+                while (true) {
+                    aux=br.readLine();
+                    if(aux!=null)
+                        lectura=lectura+aux+"\n";
+                    else 
+                        break;
+                    
+                }
+                br.close();
+                lectorArchivo.close();
+                String titulo = seleccionar.getName(f);
                 TextArea txtArea = new TextArea();
-                txtArea.setText(documento);
+                txtArea.setText(lectura);
                 panelPrincipal.addTab(titulo, txtArea);
-            }else{
-                        JOptionPane.showMessageDialog(null, "Archivo no compatible");
+             }catch (FileNotFoundException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-                    
+            
+
         }
         
         //panelPrincipal.addTab("Nuevo Archivo", new TextArea());
@@ -206,21 +248,59 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-        if (seleccionar.showDialog(null,"Abrir")== JFileChooser.APPROVE_OPTION) {
-            
-            archivo = seleccionar.getSelectedFile();
-            if (archivo.getName().endsWith("rep")) {
-                String documento = abrirArchivo(archivo);
-                String titulo = seleccionar.getName(archivo);
+
+         File f;
+        FileReader lectorArchivo;
+//        if (seleccionar.showDialog(null,"Abrir")== JFileChooser.APPROVE_OPTION) {
+//            
+//            archivo = seleccionar.getSelectedFile();
+//            if (archivo.getName().endsWith("rep")) {
+//                String documento = abrirArchivo(archivo);
+//                String titulo = seleccionar.getName(archivo);
+//                TextArea txtArea = new TextArea();
+//                txtArea.setText(documento);
+//                panelPrincipal.addTab(titulo, txtArea);
+//            }else{
+//                        JOptionPane.showMessageDialog(null, "Archivo no compatible");
+//            }
+//            
+//                    
+//        }
+
+
+        if(seleccionar.showDialog(null, "Abrir") == JFileChooser.APPROVE_OPTION){
+            //archivo = seleccionar.getSelectedFile();
+            try{
+                
+                f = seleccionar.getSelectedFile();
+                JOptionPane.showMessageDialog(null, "Seabrrira: " + f.getName());
+                lectorArchivo = new FileReader(f);
+                BufferedReader br = new BufferedReader(lectorArchivo);
+                //BufferedReader br2 = new BufferedReader(new InputStreamReader(seleccionar.getSelectedFile(), "ISO-8859-1"));
+                String lectura = "";
+                String aux="";
+                while (true) {
+                    aux=br.readLine();
+                    if(aux!=null)
+                        lectura=lectura+aux+"\n";
+                    else 
+                        break;
+                    
+                }
+                br.close();
+                lectorArchivo.close();
+                String titulo = seleccionar.getName(f);
                 TextArea txtArea = new TextArea();
-                txtArea.setText(documento);
+                txtArea.setText(lectura);
                 panelPrincipal.addTab(titulo, txtArea);
-            }else{
-                        JOptionPane.showMessageDialog(null, "Archivo no compatible");
+             }catch (FileNotFoundException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-                    
+            
+
         }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
     public void imprimirConsola(){
@@ -254,6 +334,7 @@ public class Ventana extends javax.swing.JFrame {
         Puente.mostrarDatos();
     }//GEN-LAST:event_jButton2ActionPerformed
     public String abrirArchivo(File archivo){
+        
         String documento="";
         
         try{

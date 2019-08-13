@@ -36,13 +36,13 @@ public class Sintactico extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\023\000\002\002\004\000\002\002\003\000\002\003" +
+    "\000\024\000\002\002\004\000\002\002\003\000\002\003" +
     "\004\000\002\003\003\000\002\004\003\000\002\004\003" +
     "\000\002\005\007\000\002\007\005\000\002\007\003\000" +
     "\002\010\003\000\002\010\003\000\002\006\007\000\002" +
     "\011\004\000\002\011\003\000\002\012\005\000\002\013" +
     "\005\000\002\013\003\000\002\014\003\000\002\014\003" +
-    "" });
+    "\000\002\014\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -50,27 +50,28 @@ public class Sintactico extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\041\000\006\010\005\011\011\001\002\000\010\002" +
-    "\ufffe\010\ufffe\011\ufffe\001\002\000\004\012\033\001\002" +
+    "\000\042\000\006\010\005\011\011\001\002\000\010\002" +
+    "\ufffe\010\ufffe\011\ufffe\001\002\000\004\012\034\001\002" +
     "\000\010\002\000\010\005\011\011\001\002\000\010\002" +
-    "\ufffd\010\ufffd\011\ufffd\001\002\000\004\002\031\001\002" +
+    "\ufffd\010\ufffd\011\ufffd\001\002\000\004\002\032\001\002" +
     "\000\004\012\013\001\002\000\010\002\ufffc\010\ufffc\011" +
     "\ufffc\001\002\000\004\015\014\001\002\000\004\013\015" +
-    "\001\002\000\006\005\023\007\024\001\002\000\006\013" +
-    "\015\016\020\001\002\000\006\013\ufff4\016\ufff4\001\002" +
-    "\000\010\002\ufff6\010\ufff6\011\ufff6\001\002\000\006\013" +
-    "\ufff5\016\ufff5\001\002\000\006\014\026\017\027\001\002" +
-    "\000\006\014\uffef\017\uffef\001\002\000\006\014\ufff0\017" +
-    "\ufff0\001\002\000\006\014\ufff1\017\ufff1\001\002\000\006" +
-    "\013\ufff3\016\ufff3\001\002\000\006\005\023\007\024\001" +
-    "\002\000\006\014\ufff2\017\ufff2\001\002\000\004\002\001" +
-    "\001\002\000\010\002\uffff\010\uffff\011\uffff\001\002\000" +
-    "\004\015\034\001\002\000\006\005\035\007\036\001\002" +
-    "\000\006\016\ufff7\017\ufff7\001\002\000\006\016\ufff8\017" +
-    "\ufff8\001\002\000\006\016\041\017\042\001\002\000\006" +
-    "\016\ufff9\017\ufff9\001\002\000\010\002\ufffb\010\ufffb\011" +
-    "\ufffb\001\002\000\006\005\035\007\036\001\002\000\006" +
-    "\016\ufffa\017\ufffa\001\002" });
+    "\001\002\000\010\005\023\006\024\007\025\001\002\000" +
+    "\006\013\015\016\020\001\002\000\006\013\ufff4\016\ufff4" +
+    "\001\002\000\010\002\ufff6\010\ufff6\011\ufff6\001\002\000" +
+    "\006\013\ufff5\016\ufff5\001\002\000\006\014\027\017\030" +
+    "\001\002\000\006\014\uffef\017\uffef\001\002\000\006\014" +
+    "\uffee\017\uffee\001\002\000\006\014\ufff0\017\ufff0\001\002" +
+    "\000\006\014\ufff1\017\ufff1\001\002\000\006\013\ufff3\016" +
+    "\ufff3\001\002\000\010\005\023\006\024\007\025\001\002" +
+    "\000\006\014\ufff2\017\ufff2\001\002\000\004\002\001\001" +
+    "\002\000\010\002\uffff\010\uffff\011\uffff\001\002\000\004" +
+    "\015\035\001\002\000\006\005\036\007\037\001\002\000" +
+    "\006\016\ufff7\017\ufff7\001\002\000\006\016\ufff8\017\ufff8" +
+    "\001\002\000\006\016\042\017\043\001\002\000\006\016" +
+    "\ufff9\017\ufff9\001\002\000\010\002\ufffb\010\ufffb\011\ufffb" +
+    "\001\002\000\006\005\036\007\037\001\002\000\006\016" +
+    "\ufffa\017\ufffa\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -78,19 +79,20 @@ public class Sintactico extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\041\000\014\002\007\003\005\004\003\005\006\006" +
+    "\000\042\000\014\002\007\003\005\004\003\005\006\006" +
     "\011\001\001\000\002\001\001\000\002\001\001\000\010" +
-    "\004\031\005\006\006\011\001\001\000\002\001\001\000" +
+    "\004\032\005\006\006\011\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\006\011\015\012\016\001\001\000\006\013" +
-    "\021\014\024\001\001\000\004\012\020\001\001\000\002" +
+    "\021\014\025\001\001\000\004\012\020\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\004\014\027\001\001\000\002\001" +
+    "\000\002\001\001\000\002\001\001\000\004\014\030\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\006\007\036\010\037\001\001\000\002\001\001\000" +
+    "\000\002\001\001\000\006\007\037\010\040\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
-    "\001\001\000\004\010\042\001\001\000\002\001\001" });
+    "\001\001\000\002\001\001\000\004\010\043\001\001\000" +
+    "\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -272,7 +274,7 @@ int exponente(int exp){
 		String c = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		   
                 //JOptionPane.showMessageDialog(null, "Las claves son: " + c);
-                //JOptionPane.showMessageDialog(null, "cantidad de claves: " + cantidadClaves); 
+                JOptionPane.showMessageDialog(null, "cantidad de claves: " + cantidadClaves); 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("LISTAC",2, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
           return CUP$Sintactico$result;
@@ -421,6 +423,7 @@ int exponente(int exp){
 		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
+                //JOptionPane.showMessageDialog(null,"REG::" + a);
                 String nuevaCadena = a.replace("\"", "");
                 posicionArr += 1;
                 Puente.buscarClave(nuevaCadena,posicionArr);
@@ -441,6 +444,22 @@ int exponente(int exp){
                 posicionArr += 1;
                 Puente.buscarClave(b,posicionArr);
             RESULT=b; 
+              CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("NREG",10, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
+            }
+          return CUP$Sintactico$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 19: // NREG ::= decimal 
+            {
+              String RESULT =null;
+		int cleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).left;
+		int cright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
+		String c = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
+		
+                posicionArr += 1;
+                Puente.buscarClave(c,posicionArr);
+                RESULT= c;
+            
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("NREG",10, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
           return CUP$Sintactico$result;

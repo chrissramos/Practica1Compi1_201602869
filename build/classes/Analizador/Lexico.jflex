@@ -38,7 +38,7 @@ import java.util.ArrayList;
 %full
 %unicode
 %ignorecase
-
+%8bit
 
 //-------> Expresiones Regulares
 Terminacion_Linea = [\r|\n|\r\n]
@@ -53,7 +53,6 @@ ComentarioSimple=[/][/](([^\n]+)?)
 ComentarioMultiple=([\/][\*])(([\s]|[^\n]?)*)([\*][\/])
 
 //-------> Estados    EN ORDEN
-
 
 
 %%

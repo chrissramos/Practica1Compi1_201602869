@@ -106,12 +106,12 @@ int exponente(int exp){
 //-------> Simbolos
 terminal String identificador,digito,decimal,cadena,tcadena;
 
-terminal String sumar, contar, archivo, contarSi, imprimir, numerico, promedio, graficar, obtenerSi, leerArchivo;
+terminal String sumar, contar, archivo, tcontarSi, imprimir, numerico, promedio, graficar, obtenerSi, leerArchivo;
 
 terminal String igual, llaveA, llaveC,corA, corC, coma, puntocoma, parA, parC, menorque, mayorque, desigual, dospuntos; 
 
 non terminal String  INICIO, CONTENIDO, LISTAC, VARIABLE, FIMPRIMIR, LISTAIMP, DEFINICION, OBJETOIMP, MENSAJE;
-non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION, FUNC, LISTADEFF;
+non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION, FUNC, LISTADEFF,GRAFICA, VALORSI, OPREL;
 
 
 
@@ -123,8 +123,11 @@ CONTENIDO::= CONTENIDO LISTAC
             |LISTAC;
 
 LISTAC::= DEFINICION
-            |FIMPRIMIR;
+            |FIMPRIMIR
+            |GRAFICA;
            
+GRAFICA::= graficar parA cadena:a coma cadena:b coma identificador:c coma cadena:d coma cadena:e parC puntocoma
+            {:Puente.graficar(a,b,c,d,e);:};
 
 
 FIMPRIMIR::= imprimir parA LISTAIMP:a parC puntocoma
@@ -177,6 +180,8 @@ DEFINICION::= archivo identificador:a igual leerArchivo parA cadena:b parC punto
                             int posicion = Puente.arrVariables.size() -1;
                             Variable v3 = (Variable)Puente.arrVariables.get(posicion);
                             v3.setIdentificador(a);
+                        }else if(b.equals("tcontar")){
+                            JOptionPane.showMessageDialog(null,"llego aqii");
                         }
                      
                             
@@ -195,8 +200,9 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
                 String resultado = Puente.sumar(a,b);
                 Variable v = new Variable();
                 //v.setIdentificador(a);
-                v.setTipo("Numerico");
-                v.setValorInt(Integer.parseInt(resultado));
+                v.setTipo("Double");
+                
+                v.setValorDouble(Double.parseDouble(resultado));
                 Puente.arrVariables.add(v);
                 //JOptionPane.showMessageDialog(null, "ESTAMOS EN FUNCION ABAJO");
                 //JOptionPane.showMessageDialog(null, "TIPO: " + v.getTipo() + " Id: "+ v.getIdentificador() + " valor: " + v.getValorInt());
@@ -216,10 +222,12 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
                 JOptionPane.showMessageDialog(null,"PROMEDIO RECIBIDO: " + resultado3 );
                 Variable v3 = new Variable();
                 v3.setTipo("Double");
-                v3.setValorString(resultado3);
+                v3.setValorDouble(Double.parseDouble(resultado3));
                 Puente.arrVariables.add(v3);
                 RESULT = "promedio";
-            :};
+            :}
+         |tcontarSi 
+            {:RESULT="tcontar";:};
             
 
 VARIABLE::= identificador:a
@@ -231,9 +239,20 @@ VARIABLE::= identificador:a
                         //JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
                         RESULT = Integer.toString(v.getValorInt());
                     }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
-                        JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorString());
-                          RESULT = v.getValorString();  
+                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                          RESULT = String.valueOf(v.getValorDouble());  
                     }
                     
                 }
             :};
+/***VALORSI::= cadena
+            |digito
+            |decimal;
+
+OPREL::= mayorque
+        |menorque
+        |mayorque igual
+        |menorque igual
+        |igual igual
+        |desigual igual;
+*//

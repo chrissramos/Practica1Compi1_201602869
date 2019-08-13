@@ -36,13 +36,14 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\024\000\002\002\004\000\002\002\003\000\002\003" +
+    "\000\027\000\002\002\004\000\002\002\003\000\002\003" +
     "\004\000\002\003\003\000\002\004\003\000\002\004\003" +
-    "\000\002\006\007\000\002\007\005\000\002\007\003\000" +
-    "\002\011\003\000\002\011\003\000\002\012\003\000\002" +
-    "\012\003\000\002\010\012\000\002\010\006\000\002\010" +
-    "\005\000\002\016\011\000\002\016\007\000\002\016\011" +
-    "\000\002\005\003" });
+    "\000\002\004\003\000\002\021\017\000\002\006\007\000" +
+    "\002\007\005\000\002\007\003\000\002\011\003\000\002" +
+    "\011\003\000\002\012\003\000\002\012\003\000\002\010" +
+    "\012\000\002\010\006\000\002\010\005\000\002\016\011" +
+    "\000\002\016\007\000\002\016\011\000\002\016\003\000" +
+    "\002\005\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -50,42 +51,53 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\067\000\012\010\007\013\013\015\012\016\006\001" +
-    "\002\000\014\002\ufffe\010\ufffe\013\ufffe\015\ufffe\016\ufffe" +
-    "\001\002\000\014\002\ufffc\010\ufffc\013\ufffc\015\ufffc\016" +
-    "\ufffc\001\002\000\004\004\044\001\002\000\004\004\042" +
-    "\001\002\000\004\002\041\001\002\000\014\002\000\010" +
-    "\007\013\013\015\012\016\006\001\002\000\004\032\024" +
-    "\001\002\000\004\004\015\001\002\000\014\002\ufffd\010" +
-    "\ufffd\013\ufffd\015\ufffd\016\ufffd\001\002\000\004\023\016" +
-    "\001\002\000\004\022\017\001\002\000\004\032\020\001" +
-    "\002\000\004\007\021\001\002\000\004\033\022\001\002" +
-    "\000\004\031\023\001\002\000\014\002\ufff4\010\ufff4\013" +
-    "\ufff4\015\ufff4\016\ufff4\001\002\000\010\004\030\005\025" +
-    "\007\027\001\002\000\006\030\ufff5\033\ufff5\001\002\000" +
-    "\006\030\ufff9\033\ufff9\001\002\000\006\030\ufff6\033\ufff6" +
-    "\001\002\000\006\030\uffee\033\uffee\001\002\000\006\030" +
-    "\034\033\035\001\002\000\006\030\ufff8\033\ufff8\001\002" +
-    "\000\006\030\ufff7\033\ufff7\001\002\000\010\004\030\005" +
-    "\025\007\027\001\002\000\004\031\036\001\002\000\014" +
-    "\002\ufffb\010\ufffb\013\ufffb\015\ufffb\016\ufffb\001\002\000" +
-    "\006\030\ufffa\033\ufffa\001\002\000\014\002\uffff\010\uffff" +
-    "\013\uffff\015\uffff\016\uffff\001\002\000\004\002\001\001" +
-    "\002\000\004\023\043\001\002\000\014\002\ufff2\010\ufff2" +
-    "\013\ufff2\015\ufff2\016\ufff2\001\002\000\004\023\045\001" +
-    "\002\000\010\011\050\012\051\017\046\001\002\000\004" +
-    "\032\064\001\002\000\014\002\ufff3\010\ufff3\013\ufff3\015" +
-    "\ufff3\016\ufff3\001\002\000\004\032\056\001\002\000\004" +
-    "\032\052\001\002\000\004\004\053\001\002\000\004\033" +
-    "\054\001\002\000\004\031\055\001\002\000\014\002\ufff0" +
-    "\010\ufff0\013\ufff0\015\ufff0\016\ufff0\001\002\000\004\004" +
-    "\057\001\002\000\004\030\060\001\002\000\004\007\061" +
-    "\001\002\000\004\033\062\001\002\000\004\031\063\001" +
-    "\002\000\014\002\ufff1\010\ufff1\013\ufff1\015\ufff1\016\ufff1" +
-    "\001\002\000\004\004\065\001\002\000\004\030\066\001" +
-    "\002\000\004\007\067\001\002\000\004\033\070\001\002" +
-    "\000\004\031\071\001\002\000\014\002\uffef\010\uffef\013" +
-    "\uffef\015\uffef\016\uffef\001\002" });
+    "\000\106\000\014\010\007\013\014\015\013\016\006\020" +
+    "\015\001\002\000\016\002\ufffe\010\ufffe\013\ufffe\015\ufffe" +
+    "\016\ufffe\020\ufffe\001\002\000\016\002\ufffc\010\ufffc\013" +
+    "\ufffc\015\ufffc\016\ufffc\020\ufffc\001\002\000\004\004\062" +
+    "\001\002\000\004\004\060\001\002\000\004\002\057\001" +
+    "\002\000\016\002\000\010\007\013\014\015\013\016\006" +
+    "\020\015\001\002\000\016\002\ufffb\010\ufffb\013\ufffb\015" +
+    "\ufffb\016\ufffb\020\ufffb\001\002\000\004\032\042\001\002" +
+    "\000\004\004\033\001\002\000\004\032\017\001\002\000" +
+    "\016\002\ufffd\010\ufffd\013\ufffd\015\ufffd\016\ufffd\020\ufffd" +
+    "\001\002\000\004\007\020\001\002\000\004\030\021\001" +
+    "\002\000\004\007\022\001\002\000\004\030\023\001\002" +
+    "\000\004\004\024\001\002\000\004\030\025\001\002\000" +
+    "\004\007\026\001\002\000\004\030\027\001\002\000\004" +
+    "\007\030\001\002\000\004\033\031\001\002\000\004\031" +
+    "\032\001\002\000\016\002\ufffa\010\ufffa\013\ufffa\015\ufffa" +
+    "\016\ufffa\020\ufffa\001\002\000\004\023\034\001\002\000" +
+    "\004\022\035\001\002\000\004\032\036\001\002\000\004" +
+    "\007\037\001\002\000\004\033\040\001\002\000\004\031" +
+    "\041\001\002\000\016\002\ufff2\010\ufff2\013\ufff2\015\ufff2" +
+    "\016\ufff2\020\ufff2\001\002\000\010\004\046\005\043\007" +
+    "\045\001\002\000\006\030\ufff3\033\ufff3\001\002\000\006" +
+    "\030\ufff7\033\ufff7\001\002\000\006\030\ufff4\033\ufff4\001" +
+    "\002\000\006\030\uffeb\033\uffeb\001\002\000\006\030\052" +
+    "\033\053\001\002\000\006\030\ufff6\033\ufff6\001\002\000" +
+    "\006\030\ufff5\033\ufff5\001\002\000\010\004\046\005\043" +
+    "\007\045\001\002\000\004\031\054\001\002\000\016\002" +
+    "\ufff9\010\ufff9\013\ufff9\015\ufff9\016\ufff9\020\ufff9\001\002" +
+    "\000\006\030\ufff8\033\ufff8\001\002\000\016\002\uffff\010" +
+    "\uffff\013\uffff\015\uffff\016\uffff\020\uffff\001\002\000\004" +
+    "\002\001\001\002\000\004\023\061\001\002\000\016\002" +
+    "\ufff0\010\ufff0\013\ufff0\015\ufff0\016\ufff0\020\ufff0\001\002" +
+    "\000\004\023\063\001\002\000\012\011\067\012\070\014" +
+    "\065\017\064\001\002\000\004\032\103\001\002\000\016" +
+    "\002\uffec\010\uffec\013\uffec\015\uffec\016\uffec\020\uffec\001" +
+    "\002\000\016\002\ufff1\010\ufff1\013\ufff1\015\ufff1\016\ufff1" +
+    "\020\ufff1\001\002\000\004\032\075\001\002\000\004\032" +
+    "\071\001\002\000\004\004\072\001\002\000\004\033\073" +
+    "\001\002\000\004\031\074\001\002\000\016\002\uffee\010" +
+    "\uffee\013\uffee\015\uffee\016\uffee\020\uffee\001\002\000\004" +
+    "\004\076\001\002\000\004\030\077\001\002\000\004\007" +
+    "\100\001\002\000\004\033\101\001\002\000\004\031\102" +
+    "\001\002\000\016\002\uffef\010\uffef\013\uffef\015\uffef\016" +
+    "\uffef\020\uffef\001\002\000\004\004\104\001\002\000\004" +
+    "\030\105\001\002\000\004\007\106\001\002\000\004\033" +
+    "\107\001\002\000\004\031\110\001\002\000\016\002\uffed" +
+    "\010\uffed\013\uffed\015\uffed\016\uffed\020\uffed\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -93,26 +105,31 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\067\000\014\002\007\003\010\004\003\006\004\010" +
-    "\013\001\001\000\002\001\001\000\002\001\001\000\002" +
-    "\001\001\000\002\001\001\000\002\001\001\000\010\004" +
-    "\037\006\004\010\013\001\001\000\002\001\001\000\002" +
-    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\012\005\031\007" +
-    "\030\011\025\012\032\001\001\000\002\001\001\000\002" +
-    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\002\001\001\000\010\005\031" +
-    "\011\036\012\032\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "\000\106\000\016\002\007\003\010\004\003\006\004\010" +
+    "\015\021\011\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\004\016\046\001\001\000\002\001\001\000\002\001\001" +
+    "\012\004\055\006\004\010\015\021\011\001\001\000\002" +
+    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001" });
+    "\002\001\001\000\012\005\047\007\046\011\043\012\050" +
+    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\010\005\047\011\054\012\050\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001\000\004\016\065\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
+    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -304,7 +321,40 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 6: // FIMPRIMIR ::= imprimir parA LISTAIMP parC puntocoma 
+          case 6: // LISTAC ::= GRAFICA 
+            {
+              String RESULT =null;
+
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("LISTAC",2, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+            }
+          return CUP$Sintactico2$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 7: // GRAFICA ::= graficar parA cadena coma cadena coma identificador coma cadena coma cadena parC puntocoma 
+            {
+              String RESULT =null;
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-10)).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-10)).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-10)).value;
+		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-8)).left;
+		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-8)).right;
+		String b = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-8)).value;
+		int cleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-6)).left;
+		int cright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-6)).right;
+		String c = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-6)).value;
+		int dleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).left;
+		int dright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).right;
+		String d = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).value;
+		int eleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
+		int eright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).right;
+		String e = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).value;
+		Puente.graficar(a,b,c,d,e);
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("GRAFICA",15, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-12)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+            }
+          return CUP$Sintactico2$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 8: // FIMPRIMIR ::= imprimir parA LISTAIMP parC puntocoma 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
@@ -320,7 +370,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 7: // LISTAIMP ::= LISTAIMP coma OBJETOIMP 
+          case 9: // LISTAIMP ::= LISTAIMP coma OBJETOIMP 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
@@ -338,7 +388,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 8: // LISTAIMP ::= OBJETOIMP 
+          case 10: // LISTAIMP ::= OBJETOIMP 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -352,7 +402,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 9: // OBJETOIMP ::= VARIABLE 
+          case 11: // OBJETOIMP ::= VARIABLE 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -364,7 +414,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 10: // OBJETOIMP ::= MENSAJE 
+          case 12: // OBJETOIMP ::= MENSAJE 
             {
               String RESULT =null;
 		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -376,7 +426,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 11: // MENSAJE ::= cadena 
+          case 13: // MENSAJE ::= cadena 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -390,7 +440,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 12: // MENSAJE ::= digito 
+          case 14: // MENSAJE ::= digito 
             {
               String RESULT =null;
 		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -402,7 +452,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 13: // DEFINICION ::= archivo identificador igual leerArchivo parA cadena parC puntocoma 
+          case 15: // DEFINICION ::= archivo identificador igual leerArchivo parA cadena parC puntocoma 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-6)).left;
@@ -420,7 +470,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 14: // DEFINICION ::= numerico identificador igual FUNCION 
+          case 16: // DEFINICION ::= numerico identificador igual FUNCION 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
@@ -443,6 +493,8 @@ int exponente(int exp){
                             int posicion = Puente.arrVariables.size() -1;
                             Variable v3 = (Variable)Puente.arrVariables.get(posicion);
                             v3.setIdentificador(a);
+                        }else if(b.equals("tcontar")){
+                            JOptionPane.showMessageDialog(null,"llego aqii");
                         }
                      
                             
@@ -452,7 +504,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 15: // DEFINICION ::= tcadena identificador igual 
+          case 17: // DEFINICION ::= tcadena identificador igual 
             {
               String RESULT =null;
 
@@ -461,7 +513,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 16: // FUNCION ::= sumar parA identificador coma cadena parC puntocoma 
+          case 18: // FUNCION ::= sumar parA identificador coma cadena parC puntocoma 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).left;
@@ -474,8 +526,9 @@ int exponente(int exp){
                 String resultado = Puente.sumar(a,b);
                 Variable v = new Variable();
                 //v.setIdentificador(a);
-                v.setTipo("Numerico");
-                v.setValorInt(Integer.parseInt(resultado));
+                v.setTipo("Double");
+                
+                v.setValorDouble(Double.parseDouble(resultado));
                 Puente.arrVariables.add(v);
                 //JOptionPane.showMessageDialog(null, "ESTAMOS EN FUNCION ABAJO");
                 //JOptionPane.showMessageDialog(null, "TIPO: " + v.getTipo() + " Id: "+ v.getIdentificador() + " valor: " + v.getValorInt());
@@ -486,7 +539,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 17: // FUNCION ::= contar parA identificador parC puntocoma 
+          case 19: // FUNCION ::= contar parA identificador parC puntocoma 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).left;
@@ -504,7 +557,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 18: // FUNCION ::= promedio parA identificador coma cadena parC puntocoma 
+          case 20: // FUNCION ::= promedio parA identificador coma cadena parC puntocoma 
             {
               String RESULT =null;
 		int eleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)).left;
@@ -518,7 +571,7 @@ int exponente(int exp){
                 JOptionPane.showMessageDialog(null,"PROMEDIO RECIBIDO: " + resultado3 );
                 Variable v3 = new Variable();
                 v3.setTipo("Double");
-                v3.setValorString(resultado3);
+                v3.setValorDouble(Double.parseDouble(resultado3));
                 Puente.arrVariables.add(v3);
                 RESULT = "promedio";
             
@@ -527,7 +580,16 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 19: // VARIABLE ::= identificador 
+          case 21: // FUNCION ::= tcontarSi 
+            {
+              String RESULT =null;
+		RESULT="tcontar";
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("FUNCION",12, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+            }
+          return CUP$Sintactico2$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 22: // VARIABLE ::= identificador 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -541,8 +603,8 @@ int exponente(int exp){
                         //JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
                         RESULT = Integer.toString(v.getValorInt());
                     }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
-                        JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorString());
-                          RESULT = v.getValorString();  
+                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                          RESULT = String.valueOf(v.getValorDouble());  
                     }
                     
                 }

@@ -123,7 +123,7 @@ CONTENIDO::= CONTENIDO LISTAC
 LISTAC::= CLAVESS:c
            {:   
                 //JOptionPane.showMessageDialog(null, "Las claves son: " + c);
-                //JOptionPane.showMessageDialog(null, "cantidad de claves: " + cantidadClaves); :} 
+                JOptionPane.showMessageDialog(null, "cantidad de claves: " + cantidadClaves); :} 
         |REGISTROSS;
 
 CLAVESS::= claves igual corA LISTACLAVES:a corC
@@ -165,6 +165,7 @@ NUEVOSREG::= NUEVOSREG coma NREG
 
 NREG::= cadena:a
             {:
+                //JOptionPane.showMessageDialog(null,"REG::" + a);
                 String nuevaCadena = a.replace("\"", "");
                 posicionArr += 1;
                 Puente.buscarClave(nuevaCadena,posicionArr);
@@ -174,5 +175,11 @@ NREG::= cadena:a
             {:
                 posicionArr += 1;
                 Puente.buscarClave(b,posicionArr);
-            RESULT=b; :}; 
+            RESULT=b; :}
+        |decimal:c
+            {:
+                posicionArr += 1;
+                Puente.buscarClave(c,posicionArr);
+                RESULT= c;
+            :}; 
 

@@ -14,7 +14,7 @@ public class Variable {
     String valorString = "";
     String tipo = "";
     int valorInt = 0;
-    
+    double valorDouble=0.0;
     public Variable() {
     }
     public Variable(String identificador, String tipo, String valorString){
@@ -27,6 +27,14 @@ public class Variable {
         this.identificador = identificador;
         this.valorInt = valorInt;
         this.tipo = tipo;
+    }
+
+    public double getValorDouble() {
+        return valorDouble;
+    }
+
+    public void setValorDouble(double valorDouble) {
+        this.valorDouble = valorDouble;
     }
     public String getTipo(){
         return tipo;

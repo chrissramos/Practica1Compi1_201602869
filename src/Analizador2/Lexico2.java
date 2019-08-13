@@ -895,7 +895,7 @@ public class Lexico2 implements java_cup.runtime.Scanner {
             // fall through
           case 55: break;
           case 25: 
-            { System.out.println("ContarSi"); return new Symbol(sym.contarSi, yycolumn, yyline, yytext());
+            { System.out.println("ContarSi"); return new Symbol(sym.tcontarSi, yycolumn, yyline, yytext());
             } 
             // fall through
           case 56: break;

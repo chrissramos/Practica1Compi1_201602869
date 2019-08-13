@@ -75,7 +75,7 @@ ComentarioMultiple=([\/][\*])(([\s]|[^\n]?)*)([\*][\/])
 <YYINITIAL>"sumar" { System.out.println("sumar"); return new Symbol(sym.sumar, yycolumn, yyline, yytext());}
 <YYINITIAL>"Contar" { System.out.println("Contar"); return new Symbol(sym.contar, yycolumn, yyline, yytext());}
 <YYINITIAL>"Promedio" { System.out.println("Promedio"); return new Symbol(sym.promedio, yycolumn, yyline, yytext());}
-<YYINITIAL>"ContarSi" { System.out.println("ContarSi"); return new Symbol(sym.contarSi, yycolumn, yyline, yytext());}
+<YYINITIAL>"ContarSi" { System.out.println("ContarSi"); return new Symbol(sym.tcontarSi, yycolumn, yyline, yytext());}
 <YYINITIAL>"ObtenerSi" { System.out.println("ObtenerSi"); return new Symbol(sym.obtenerSi, yycolumn, yyline, yytext());}
 <YYINITIAL>"Imprimir" { System.out.println("Imprimir"); return new Symbol(sym.imprimir, yycolumn, yyline, yytext());}
 <YYINITIAL>"Graficar" { System.out.println("graficar"); return new Symbol(sym.graficar, yycolumn, yyline, yytext());}

@@ -15,7 +15,6 @@ public class sym {
   public static final int archivo = 9;
   public static final int imprimir = 11;
   public static final int sumar = 7;
-  public static final int contarSi = 10;
   public static final int numerico = 12;
   public static final int corC = 21;
   public static final int llaveC = 19;
@@ -28,6 +27,7 @@ public class sym {
   public static final int tcadena = 6;
   public static final int desigual = 28;
   public static final int puntocoma = 23;
+  public static final int tcontarSi = 10;
   public static final int obtenerSi = 15;
   public static final int mayorque = 27;
   public static final int parC = 25;
@@ -49,7 +49,7 @@ public class sym {
   "sumar",
   "contar",
   "archivo",
-  "contarSi",
+  "tcontarSi",
   "imprimir",
   "numerico",
   "promedio",
