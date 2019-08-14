@@ -158,12 +158,7 @@ public class Puente {
                     sumaTotal += edadInt;
                 }
                 resultado =String.valueOf(sumaTotal);
-                //JOptionPane.showMessageDialog(null, "Suma total: " + resultado);
-                //JOptionPane.showMessageDialog(null, "Se encontraron: " + listaC.size() + " en: " + clave);
-                //String contenidoString = (String) listaC.get(i);
-                //JOptionPane.showMessageDialog(null, "Dato a sumar:" +contenidoString);
             }
-            
         }
         
         return resultado;
@@ -183,6 +178,72 @@ public class Puente {
         return resultado;
     }
     
+    public static String contarSi(String identificador,String clave,String operador, String valor){
+        JOptionPane.showMessageDialog(null, "Operador:" + operador + " valor:" + valor + " Clave:" + clave);
+        int contadorSi = 0;
+        String claveBien = clave.replace("\"", "");
+        String resultado ="";
+        int contador =0;
+        for (int i = 0; i < arrClaves.size(); i++) {
+            Claves c = (Claves) arrClaves.get(i);
+            if (c.getId().equals(identificador) && c.getClave().equals(claveBien) ) {
+                JOptionPane.showMessageDialog(null, "CONTAR SIiiii" + claveBien);
+                //identificador = datos1
+                ArrayList listaC = c.getContenido();
+                //ArrayList contadorSi = new ArrayList();
+                
+                for (int j = 0; j < listaC.size(); j++) {
+                    String valorString = (String) listaC.get(j);
+                    switch (operador) {
+                        case "<":
+                            
+                            double valorDouble = Double.parseDouble(valorString);
+                            if(valorDouble < Double.parseDouble(valor)){
+                                contadorSi += 1;
+                            }
+                            //separar if de operadores 
+                            break;
+                        case ">":
+                            double valorDouble2 = Double.parseDouble(valorString);
+                            if(valorDouble2 > Double.parseDouble(valor)){
+                                contadorSi += 1;
+                            }
+                            break;
+                        case "<=":
+                            double valorDouble3 = Double.parseDouble(valorString);
+                            if(valorDouble3 <= Double.parseDouble(valor)){
+                                contadorSi += 1;
+                            }
+                            break;
+                        case ">=":
+                            double valorDouble4 = Double.parseDouble(valorString);
+                            if(valorDouble4 >= Double.parseDouble(valor)){
+                                contadorSi += 1;
+                            }
+                            break;
+                        case "==":
+                            String valorReal = valor.replace("\"", "");
+                            if(valorString.equals(valorReal)){
+                                contadorSi += 1;
+                            }
+                            break;
+                        case "!=":
+                            String valorReal1 = valor.replace("\"", "");
+                            if(!valorString.equals(valorReal1)){
+                                contadorSi += 1;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                
+            }
+        }
+        resultado = Integer.toString(contadorSi);
+        //JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado);
+        return resultado;
+    }
     public static String promedio(String identificador, String cadena){
         ArrayList prom = new ArrayList();
         String resultado33= "";

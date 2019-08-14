@@ -181,7 +181,10 @@ DEFINICION::= archivo identificador:a igual leerArchivo parA cadena:b parC punto
                             Variable v3 = (Variable)Puente.arrVariables.get(posicion);
                             v3.setIdentificador(a);
                         }else if(b.equals("tcontar")){
-                            JOptionPane.showMessageDialog(null,"llego aqii");
+                            int posicion = Puente.arrVariables.size() -1;
+                            Variable v4 = (Variable)Puente.arrVariables.get(posicion);
+                            v4.setIdentificador(a);
+                            //JOptionPane.showMessageDialog(null,"llego aqii");
                         }
                      
                             
@@ -226,8 +229,14 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
                 Puente.arrVariables.add(v3);
                 RESULT = "promedio";
             :}
-         |tcontarSi 
-            {:RESULT="tcontar";:};
+         |tcontarSi parA identificador:a coma cadena:b coma OPREL:c coma VALORSI:d parC puntocoma
+            {:  String resultado4 = Puente.contarSi(a,b,c,d);
+                JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado4);
+                Variable v4 = new Variable();
+                v4.setTipo("Numerico");
+                v4.setValorInt(Integer.parseInt(resultado4));
+                Puente.arrVariables.add(v4);
+                RESULT="tcontar";:};
             
 
 VARIABLE::= identificador:a
@@ -245,14 +254,28 @@ VARIABLE::= identificador:a
                     
                 }
             :};
-/***VALORSI::= cadena
-            |digito
-            |decimal;
 
-OPREL::= mayorque
-        |menorque
-        |mayorque igual
-        |menorque igual
-        |igual igual
-        |desigual igual;
-*//
+OPREL::= mayorque:a
+        {:RESULT=a;:}
+        |menorque:b
+        {:RESULT=b;:}
+        |mayorque:c igual:d
+        {:RESULT= c + d;:}
+        |menorque:e igual:f
+        {:RESULT=e+f;:}
+        |igual:g igual:h
+        {:RESULT=g+h;:}
+        |desigual:i igual:j
+        {:RESULT=i+j;:};
+VALORSI::= cadena:a
+            {:  String enviar = a.replace("\"", "");
+                RESULT=enviar;
+            :}
+            |digito:b
+            {:
+                RESULT=b;
+            :}
+            |decimal:c
+            {:
+                RESULT=c;
+            :};
