@@ -244,6 +244,85 @@ public class Puente {
         //JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado);
         return resultado;
     }
+    public static String obtenerMostrar(int clave, int contenido){
+        String contenidoTodo = "\n{";
+        for (int i = 0; i < arrClaves.size(); i++) {
+            Claves c = (Claves) arrClaves.get(i);
+            ArrayList listaC = c.getContenido();
+            contenidoTodo += c.getClave() +": " + (String)listaC.get(contenido) + ", ";
+        }
+        contenidoTodo+= "}\n";
+        System.err.print(contenidoTodo);
+        //JOptionPane.showMessageDialog(null, contenidoTodo);
+        return contenidoTodo;
+    }
+    public static String obtenerSi(String identificador, String clave, String operador, String valor){
+        JOptionPane.showMessageDialog(null, "ObtenerSI con operador " + operador);
+        String resultado = "[";
+        int indiceSi = 0;
+        String claveSi = clave.replace("\"", "");
+        for (int i = 0; i < arrClaves.size(); i++) {
+            Claves c = (Claves) arrClaves.get(i);
+            //JOptionPane.showMessageDialog(null,"LA CLAVEEEEEE:  "+ c.getClave());
+            if(c.getId().equals(identificador) && c.getClave().equals(claveSi) ){
+                JOptionPane.showMessageDialog(null, "Entro A IF " + claveSi);
+                ArrayList listaC = c.getContenido();
+                for (int j = 0; j < listaC.size(); j++) {
+                    String valorString = (String) listaC.get(j);
+                    switch (operador) {
+                        case "<":
+                            double valorDouble = Double.parseDouble(valorString);
+                            if(valorDouble < Double.parseDouble(valor)){
+                                resultado += obtenerMostrar(i, j);
+                            }
+                            break;
+                        case ">":
+                            double valorDouble2 = Double.parseDouble(valorString);
+                            if(valorDouble2 > Double.parseDouble(valor)){
+                                resultado += obtenerMostrar(i, j);
+                            }
+                            break;
+                        case "<=":
+                            double valorDouble3 = Double.parseDouble(valorString);
+                            if(valorDouble3 <= Double.parseDouble(valor)){
+                                resultado += obtenerMostrar(i, j);
+                            }
+                            break;
+                        case ">=":
+                            double valorDouble4 = Double.parseDouble(valorString);
+                            if(valorDouble4 >= Double.parseDouble(valor)){
+                                resultado += obtenerMostrar(i, j);
+                            }
+                            break;
+                        case "==":
+                            String valorReal = valor.replace("\"", "");
+                            if(valorString.equals(valorReal)){
+                                //JOptionPane.showMessageDialog(null,"Encontro acierto en posicion" + i+ " , " + j);
+                                resultado += obtenerMostrar(i, j);
+                                
+                            }
+                            break;
+                        case "!=":
+                            String valorReal2 = valor.replace("\"", "");
+                            if(!valorString.equals(valorReal2)){
+                                //JOptionPane.showMessageDialog(null,"Encontro acierto en posicion" + i+ " , " + j);
+                                resultado += obtenerMostrar(i, j);
+                                
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            
+            
+        }
+        resultado += "]";
+        //JOptionPane.showMessageDialog(null, resultado);
+        return resultado;
+                
+    }
     public static String promedio(String identificador, String cadena){
         ArrayList prom = new ArrayList();
         String resultado33= "";

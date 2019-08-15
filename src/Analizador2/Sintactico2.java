@@ -36,17 +36,17 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** Production table. */
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
-    "\000\040\000\002\002\004\000\002\002\003\000\002\003" +
+    "\000\041\000\002\002\004\000\002\002\003\000\002\003" +
     "\004\000\002\003\003\000\002\004\003\000\002\004\003" +
     "\000\002\004\003\000\002\021\017\000\002\006\007\000" +
     "\002\007\005\000\002\007\003\000\002\011\003\000\002" +
     "\011\003\000\002\012\003\000\002\012\003\000\002\010" +
-    "\012\000\002\010\006\000\002\010\005\000\002\016\011" +
+    "\012\000\002\010\006\000\002\010\007\000\002\016\011" +
     "\000\002\016\007\000\002\016\011\000\002\016\015\000" +
-    "\002\005\003\000\002\023\003\000\002\023\003\000\002" +
-    "\023\004\000\002\023\004\000\002\023\004\000\002\023" +
-    "\004\000\002\022\003\000\002\022\003\000\002\022\003" +
-    "" });
+    "\002\024\014\000\002\005\003\000\002\023\003\000\002" +
+    "\023\003\000\002\023\004\000\002\023\004\000\002\023" +
+    "\004\000\002\023\004\000\002\022\003\000\002\022\003" +
+    "\000\002\022\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -54,10 +54,10 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\133\000\014\010\007\013\014\015\013\016\006\020" +
+    "\000\147\000\014\010\007\013\014\015\013\016\006\020" +
     "\015\001\002\000\016\002\ufffe\010\ufffe\013\ufffe\015\ufffe" +
     "\016\ufffe\020\ufffe\001\002\000\016\002\ufffc\010\ufffc\013" +
-    "\ufffc\015\ufffc\016\ufffc\020\ufffc\001\002\000\004\004\062" +
+    "\ufffc\015\ufffc\016\ufffc\020\ufffc\001\002\000\004\004\111" +
     "\001\002\000\004\004\060\001\002\000\004\002\057\001" +
     "\002\000\016\002\000\010\007\013\014\015\013\016\006" +
     "\020\015\001\002\000\016\002\ufffb\010\ufffb\013\ufffb\015" +
@@ -77,41 +77,48 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
     "\016\ufff2\020\ufff2\001\002\000\010\004\046\005\043\007" +
     "\045\001\002\000\006\030\ufff3\033\ufff3\001\002\000\006" +
     "\030\ufff7\033\ufff7\001\002\000\006\030\ufff4\033\ufff4\001" +
-    "\002\000\006\030\uffeb\033\uffeb\001\002\000\006\030\052" +
+    "\002\000\006\030\uffea\033\uffea\001\002\000\006\030\052" +
     "\033\053\001\002\000\006\030\ufff6\033\ufff6\001\002\000" +
     "\006\030\ufff5\033\ufff5\001\002\000\010\004\046\005\043" +
     "\007\045\001\002\000\004\031\054\001\002\000\016\002" +
     "\ufff9\010\ufff9\013\ufff9\015\ufff9\016\ufff9\020\ufff9\001\002" +
     "\000\006\030\ufff8\033\ufff8\001\002\000\016\002\uffff\010" +
     "\uffff\013\uffff\015\uffff\016\uffff\020\uffff\001\002\000\004" +
-    "\002\001\001\002\000\004\023\061\001\002\000\016\002" +
-    "\ufff0\010\ufff0\013\ufff0\015\ufff0\016\ufff0\020\ufff0\001\002" +
-    "\000\004\023\063\001\002\000\012\011\067\012\070\014" +
-    "\065\017\064\001\002\000\004\032\130\001\002\000\004" +
-    "\032\103\001\002\000\016\002\ufff1\010\ufff1\013\ufff1\015" +
-    "\ufff1\016\ufff1\020\ufff1\001\002\000\004\032\075\001\002" +
-    "\000\004\032\071\001\002\000\004\004\072\001\002\000" +
-    "\004\033\073\001\002\000\004\031\074\001\002\000\016" +
-    "\002\uffee\010\uffee\013\uffee\015\uffee\016\uffee\020\uffee\001" +
-    "\002\000\004\004\076\001\002\000\004\030\077\001\002" +
-    "\000\004\007\100\001\002\000\004\033\101\001\002\000" +
-    "\004\031\102\001\002\000\016\002\uffef\010\uffef\013\uffef" +
-    "\015\uffef\016\uffef\020\uffef\001\002\000\004\004\104\001" +
-    "\002\000\004\030\105\001\002\000\004\007\106\001\002" +
-    "\000\004\030\107\001\002\000\012\023\111\034\113\035" +
-    "\114\036\112\001\002\000\004\030\121\001\002\000\004" +
-    "\023\120\001\002\000\004\023\117\001\002\000\006\023" +
-    "\116\030\uffe9\001\002\000\006\023\115\030\uffea\001\002" +
-    "\000\004\030\uffe8\001\002\000\004\030\uffe7\001\002\000" +
-    "\004\030\uffe5\001\002\000\004\030\uffe6\001\002\000\010" +
-    "\005\122\006\123\007\124\001\002\000\004\033\uffe3\001" +
-    "\002\000\004\033\uffe2\001\002\000\004\033\uffe4\001\002" +
-    "\000\004\033\126\001\002\000\004\031\127\001\002\000" +
-    "\016\002\uffec\010\uffec\013\uffec\015\uffec\016\uffec\020\uffec" +
-    "\001\002\000\004\004\131\001\002\000\004\030\132\001" +
-    "\002\000\004\007\133\001\002\000\004\033\134\001\002" +
-    "\000\004\031\135\001\002\000\016\002\uffed\010\uffed\013" +
-    "\uffed\015\uffed\016\uffed\020\uffed\001\002" });
+    "\002\001\001\002\000\004\023\061\001\002\000\004\021" +
+    "\062\001\002\000\004\032\065\001\002\000\004\031\064" +
+    "\001\002\000\016\002\ufff0\010\ufff0\013\ufff0\015\ufff0\016" +
+    "\ufff0\020\ufff0\001\002\000\004\004\066\001\002\000\004" +
+    "\030\067\001\002\000\004\007\070\001\002\000\004\030" +
+    "\071\001\002\000\012\023\073\034\075\035\076\036\074" +
+    "\001\002\000\004\030\103\001\002\000\004\023\102\001" +
+    "\002\000\004\023\101\001\002\000\006\023\100\030\uffe8" +
+    "\001\002\000\006\023\077\030\uffe9\001\002\000\004\030" +
+    "\uffe7\001\002\000\004\030\uffe6\001\002\000\004\030\uffe4" +
+    "\001\002\000\004\030\uffe5\001\002\000\010\005\104\006" +
+    "\105\007\106\001\002\000\004\033\uffe2\001\002\000\004" +
+    "\033\uffe1\001\002\000\004\033\uffe3\001\002\000\004\033" +
+    "\110\001\002\000\004\031\uffeb\001\002\000\004\023\112" +
+    "\001\002\000\012\011\116\012\117\014\114\017\113\001" +
+    "\002\000\004\032\144\001\002\000\004\032\132\001\002" +
+    "\000\016\002\ufff1\010\ufff1\013\ufff1\015\ufff1\016\ufff1\020" +
+    "\ufff1\001\002\000\004\032\124\001\002\000\004\032\120" +
+    "\001\002\000\004\004\121\001\002\000\004\033\122\001" +
+    "\002\000\004\031\123\001\002\000\016\002\uffee\010\uffee" +
+    "\013\uffee\015\uffee\016\uffee\020\uffee\001\002\000\004\004" +
+    "\125\001\002\000\004\030\126\001\002\000\004\007\127" +
+    "\001\002\000\004\033\130\001\002\000\004\031\131\001" +
+    "\002\000\016\002\uffef\010\uffef\013\uffef\015\uffef\016\uffef" +
+    "\020\uffef\001\002\000\004\004\133\001\002\000\004\030" +
+    "\134\001\002\000\004\007\135\001\002\000\004\030\136" +
+    "\001\002\000\012\023\073\034\075\035\076\036\074\001" +
+    "\002\000\004\030\140\001\002\000\010\005\104\006\105" +
+    "\007\106\001\002\000\004\033\142\001\002\000\004\031" +
+    "\143\001\002\000\016\002\uffec\010\uffec\013\uffec\015\uffec" +
+    "\016\uffec\020\uffec\001\002\000\004\004\145\001\002\000" +
+    "\004\030\146\001\002\000\004\007\147\001\002\000\004" +
+    "\033\150\001\002\000\004\031\151\001\002\000\016\002" +
+    "\uffed\010\uffed\013\uffed\015\uffed\016\uffed\020\uffed\001\002" +
+    "" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -119,7 +126,7 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
   /** <code>reduce_goto</code> table. */
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
-    "\000\133\000\016\002\007\003\010\004\003\006\004\010" +
+    "\000\147\000\016\002\007\003\010\004\003\006\004\010" +
     "\015\021\011\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
     "\012\004\055\006\004\010\015\021\011\001\001\000\002" +
@@ -136,21 +143,25 @@ public class Sintactico2 extends java_cup.runtime.lr_parser {
     "\000\002\001\001\000\010\005\047\011\054\012\050\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\004\016\065\001\001" +
+    "\004\024\062\001\001\000\002\001\001\000\002\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001\000\004\023\071\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\001\001\000\002\001\001\000\002\001\001\000\004\022" +
+    "\106\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
+    "\001\000\004\016\114\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\004" +
-    "\023\107\001\001\000\002\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\004\022\124\001\001\000\002\001\001\000\002" +
+    "\001\000\002\001\001\000\004\023\136\001\001\000\002" +
+    "\001\001\000\004\022\140\001\001\000\002\001\001\000" +
+    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
-    "\002\001\001" });
+    "\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -528,11 +539,21 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 17: // DEFINICION ::= tcadena identificador igual 
+          case 17: // DEFINICION ::= tcadena identificador igual FOBTENERSI puntocoma 
             {
               String RESULT =null;
-
-              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("DEFINICION",6, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+		int gleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-3)).left;
+		int gright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-3)).right;
+		String g = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-3)).value;
+		int cleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).left;
+		int cright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).right;
+		String c = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).value;
+		
+                    int posicion = Puente.arrVariables.size() -1;
+                    Variable f = (Variable)Puente.arrVariables.get(posicion);
+                    f.setIdentificador(g);
+                
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("DEFINICION",6, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-4)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
             }
           return CUP$Sintactico2$result;
 
@@ -631,7 +652,34 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 22: // VARIABLE ::= identificador 
+          case 22: // FOBTENERSI ::= obtenerSi parA identificador coma cadena coma OPREL coma VALORSI parC 
+            {
+              String RESULT =null;
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-7)).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-7)).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-7)).value;
+		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-5)).left;
+		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-5)).right;
+		String b = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-5)).value;
+		int cleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-3)).left;
+		int cright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-3)).right;
+		String c = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-3)).value;
+		int dleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).left;
+		int dright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).right;
+		String d = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).value;
+		String resultado5 = Puente.obtenerSi(a,b,c,d);
+                Variable v5 = new Variable();
+                v5.setTipo("Cadena");
+                v5.setValorString(resultado5);
+                Puente.arrVariables.add(v5);
+                RESULT= "a";
+                
+              CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("FOBTENERSI",18, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-9)), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
+            }
+          return CUP$Sintactico2$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 23: // VARIABLE ::= identificador 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -647,6 +695,9 @@ int exponente(int exp){
                     }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
                         //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
                           RESULT = String.valueOf(v.getValorDouble());  
+                    }else if(v.getTipo().equals("Cadena") && v.getIdentificador().equals(a)){
+                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                          RESULT = v.getValorString();
                     }
                     
                 }
@@ -656,7 +707,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 23: // OPREL ::= mayorque 
+          case 24: // OPREL ::= mayorque 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -668,7 +719,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 24: // OPREL ::= menorque 
+          case 25: // OPREL ::= menorque 
             {
               String RESULT =null;
 		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -680,7 +731,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 25: // OPREL ::= mayorque igual 
+          case 26: // OPREL ::= mayorque igual 
             {
               String RESULT =null;
 		int cleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).left;
@@ -695,7 +746,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 26: // OPREL ::= menorque igual 
+          case 27: // OPREL ::= menorque igual 
             {
               String RESULT =null;
 		int eleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).left;
@@ -710,7 +761,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 27: // OPREL ::= igual igual 
+          case 28: // OPREL ::= igual igual 
             {
               String RESULT =null;
 		int gleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).left;
@@ -725,7 +776,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 28: // OPREL ::= desigual igual 
+          case 29: // OPREL ::= desigual igual 
             {
               String RESULT =null;
 		int ileft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-1)).left;
@@ -740,7 +791,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 29: // VALORSI ::= cadena 
+          case 30: // VALORSI ::= cadena 
             {
               String RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -754,7 +805,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 30: // VALORSI ::= digito 
+          case 31: // VALORSI ::= digito 
             {
               String RESULT =null;
 		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;
@@ -768,7 +819,7 @@ int exponente(int exp){
           return CUP$Sintactico2$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 31: // VALORSI ::= decimal 
+          case 32: // VALORSI ::= decimal 
             {
               String RESULT =null;
 		int cleft = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).left;

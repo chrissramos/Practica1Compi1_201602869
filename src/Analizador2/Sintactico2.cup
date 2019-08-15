@@ -111,7 +111,7 @@ terminal String sumar, contar, archivo, tcontarSi, imprimir, numerico, promedio,
 terminal String igual, llaveA, llaveC,corA, corC, coma, puntocoma, parA, parC, menorque, mayorque, desigual, dospuntos; 
 
 non terminal String  INICIO, CONTENIDO, LISTAC, VARIABLE, FIMPRIMIR, LISTAIMP, DEFINICION, OBJETOIMP, MENSAJE;
-non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION, FUNC, LISTADEFF,GRAFICA, VALORSI, OPREL;
+non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION, FUNC, LISTADEFF,GRAFICA, VALORSI, OPREL,FOBTENERSI;
 
 
 
@@ -189,7 +189,13 @@ DEFINICION::= archivo identificador:a igual leerArchivo parA cadena:b parC punto
                      
                             
                     :}
-            | tcadena identificador igual;
+            | tcadena identificador:g igual FOBTENERSI:c puntocoma
+                {:
+                    int posicion = Puente.arrVariables.size() -1;
+                    Variable f = (Variable)Puente.arrVariables.get(posicion);
+                    f.setIdentificador(g);
+                :};
+
 
 /***
 
@@ -238,6 +244,15 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
                 Puente.arrVariables.add(v4);
                 RESULT="tcontar";:};
             
+FOBTENERSI::= obtenerSi parA identificador:a coma cadena:b coma OPREL:c coma VALORSI:d parC 
+                {:String resultado5 = Puente.obtenerSi(a,b,c,d);
+                Variable v5 = new Variable();
+                v5.setTipo("Cadena");
+                v5.setValorString(resultado5);
+                Puente.arrVariables.add(v5);
+                RESULT= "a";
+                :};
+
 
 VARIABLE::= identificador:a
             {:
@@ -250,6 +265,9 @@ VARIABLE::= identificador:a
                     }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
                         //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
                           RESULT = String.valueOf(v.getValorDouble());  
+                    }else if(v.getTipo().equals("Cadena") && v.getIdentificador().equals(a)){
+                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                          RESULT = v.getValorString();
                     }
                     
                 }
