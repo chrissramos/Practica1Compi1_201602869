@@ -106,24 +106,8 @@ public class Puente {
         } catch (IOException ex) {
                 Logger.getLogger(Puente.class.getName()).log(Level.SEVERE, null, ex);
             }
-//        FileInputStream entrada;
-//        JOptionPane.showMessageDialog(null, "Creara: " + identificador + " con cadena:" + cadena);
-//        
-//        String contenido = "";
-//        try{
-//            entrada=new FileInputStream(archivo);
-//            int ascii;
-//            while ((ascii=entrada.read())!=-1) {
-//                char caracter=(char)ascii;
-//                contenido+=caracter;
-//            }
-//        }catch(Exception e){
-//        
-//        }
-//        
-//        
-//        System.err.println("AARCHIVO DE ENTRADA:"+contenido);
-//        
+
+    
         System.err.println("AARCHIVO DE ENTRADA:"+contenido);
         try{
             Sintactico sin = new Sintactico(
@@ -403,12 +387,7 @@ public class Puente {
                     valY.add(datoEjeY);
                 }
             }
-            //JOptionPane.showMessageDialog(null, "DATOX>> " +valX.size() + " DATOY>>" + valY.size() );
-//            for (int j = 0; j < valX.size(); j++) {
-//               String valXUso = (String)valX.get(j);
-//               String valYUso = (String)valY.get(j);
-//               dataset.addValue(Integer.parseInt(valYUso),valXUso,valXUso);
-//            }
+
         }
         for (int i = 0; i <valX.size(); i++) {
             String valXUso = (String)valX.get(i);
@@ -416,18 +395,15 @@ public class Puente {
             dataset.addValue(Double.parseDouble(valYUso), valXUso,valXUso);
             
         }
-        //dataset.addValue(2, "randall", "ramos");
-        //dataset.addValue(4, "Sofi", "Cordova");
-        //dataset.addValue(6, "Mabel", "Osorio");
-        //JFreeChart barChart = ChartFactory.createBarChart("titulo", "EjeX", "EjeY", dataset, PlotOrientation.VERTICAL, true, true,true);
         
         JFreeChart barChart = ChartFactory.createBarChart(titulo, valorX, valorY, dataset, PlotOrientation.VERTICAL, true, true,true);
         int width = 640;
         int height = 480;
         String tit = nombre.replace("\"", "");
-        File XYChart = new File("graficas\\"+ tit + ".jpeg");
+        File XYChart = new File("C:\\Users\\Chriss Ramos\\Desktop\\"+tit + ".jpeg");
+        //File XYChart = new File("graficas\\"+tit + ".jpeg");
         ChartUtilities.saveChartAsJPEG(XYChart, barChart, width,height);
-        
+        JOptionPane.showMessageDialog(null, "grafico");
         int altura = 0;
         
         
