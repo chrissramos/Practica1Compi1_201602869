@@ -111,7 +111,7 @@ terminal String sumar, contar, archivo, tcontarSi, imprimir, numerico, promedio,
 terminal String igual, llaveA, llaveC,corA, corC, coma, puntocoma, parA, parC, menorque, mayorque, desigual, dospuntos; 
 
 non terminal String  INICIO, CONTENIDO, LISTAC, VARIABLE, FIMPRIMIR, LISTAIMP, DEFINICION, OBJETOIMP, MENSAJE;
-non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION, FUNC, LISTADEFF,GRAFICA, VALORSI, OPREL,FOBTENERSI;
+non terminal String ARCHIVODEF, ARCHIVO, DEF, FUNCION, FUNC, LISTADEFF,GRAFICA, VALORSI, OPREL,FOBTENERSI,IMPARCHIVO;
 
 
 
@@ -152,6 +152,7 @@ OBJETOIMP::= VARIABLE:a
             |MENSAJE:b
                 {: RESULT = b; :};
             
+
 
 MENSAJE::= cadena:a
             {: System.err.println("entrando cadena> " + a);
@@ -228,7 +229,7 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
         |promedio parA identificador:e coma cadena:f parC puntocoma
             {:
                 String resultado3 = Puente.promedio(e,f);
-                JOptionPane.showMessageDialog(null,"PROMEDIO RECIBIDO: " + resultado3 );
+                //JOptionPane.showMessageDialog(null,"PROMEDIO RECIBIDO: " + resultado3 );
                 Variable v3 = new Variable();
                 v3.setTipo("Double");
                 v3.setValorDouble(Double.parseDouble(resultado3));
@@ -237,7 +238,7 @@ FUNCION::= sumar parA identificador:a coma cadena:b parC puntocoma
             :}
          |tcontarSi parA identificador:a coma cadena:b coma OPREL:c coma VALORSI:d parC puntocoma
             {:  String resultado4 = Puente.contarSi(a,b,c,d);
-                JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado4);
+                //JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado4);
                 Variable v4 = new Variable();
                 v4.setTipo("Numerico");
                 v4.setValorInt(Integer.parseInt(resultado4));
@@ -256,21 +257,33 @@ FOBTENERSI::= obtenerSi parA identificador:a coma cadena:b coma OPREL:c coma VAL
 
 VARIABLE::= identificador:a
             {:
-                for(int i=0;i<Puente.arrVariables.size();i++){
-                    Variable v = (Variable)Puente.arrVariables.get(i);
-                    //JOptionPane.showMessageDialog(null, "Se buscara: "+ v.getTipo() + " y: " + v.getIdentificador() );
-                    if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
-                        //JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
-                        RESULT = Integer.toString(v.getValorInt());
-                    }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
-                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
-                          RESULT = String.valueOf(v.getValorDouble());  
-                    }else if(v.getTipo().equals("Cadena") && v.getIdentificador().equals(a)){
-                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
-                          RESULT = v.getValorString();
+                if(Puente.arrVariables.size() == 0){
+                    //JOptionPane.showMessageDialog(null,"es variable Archivo");
+                    String resultadoI = Puente.imprimirArchivo(a);
+                    RESULT = resultadoI;
+                }else{
+                    for(int i=0;i<Puente.arrVariables.size();i++){
+                        Variable v = (Variable)Puente.arrVariables.get(i);
+                        //JOptionPane.showMessageDialog(null, "Se buscara: "+ v.getTipo() + " y: " + v.getIdentificador() );
+                        if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
+                            //JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
+                            RESULT = Integer.toString(v.getValorInt());
+                        }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
+                            //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                              RESULT = String.valueOf(v.getValorDouble());  
+                        }else if(v.getTipo().equals("Cadena") && v.getIdentificador().equals(a)){
+                            //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                              RESULT = v.getValorString();
+                        }
+                        else{
+                            //JOptionPane.showMessageDialog(null,"es variable Archivo 2");
+                            String resultadoI2=Puente.imprimirArchivo(a);
+                            RESULT = resultadoI2;
+                        }
                     }
                     
                 }
+                
             :};
 
 OPREL::= mayorque:a

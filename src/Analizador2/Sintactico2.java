@@ -613,7 +613,7 @@ int exponente(int exp){
 		String f = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).value;
 		
                 String resultado3 = Puente.promedio(e,f);
-                JOptionPane.showMessageDialog(null,"PROMEDIO RECIBIDO: " + resultado3 );
+                //JOptionPane.showMessageDialog(null,"PROMEDIO RECIBIDO: " + resultado3 );
                 Variable v3 = new Variable();
                 v3.setTipo("Double");
                 v3.setValorDouble(Double.parseDouble(resultado3));
@@ -641,7 +641,7 @@ int exponente(int exp){
 		int dright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).right;
 		String d = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.elementAt(CUP$Sintactico2$top-2)).value;
 		  String resultado4 = Puente.contarSi(a,b,c,d);
-                JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado4);
+                //JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado4);
                 Variable v4 = new Variable();
                 v4.setTipo("Numerico");
                 v4.setValorInt(Integer.parseInt(resultado4));
@@ -686,21 +686,33 @@ int exponente(int exp){
 		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()).right;
 		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico2$stack.peek()).value;
 		
-                for(int i=0;i<Puente.arrVariables.size();i++){
-                    Variable v = (Variable)Puente.arrVariables.get(i);
-                    //JOptionPane.showMessageDialog(null, "Se buscara: "+ v.getTipo() + " y: " + v.getIdentificador() );
-                    if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
-                        //JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
-                        RESULT = Integer.toString(v.getValorInt());
-                    }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
-                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
-                          RESULT = String.valueOf(v.getValorDouble());  
-                    }else if(v.getTipo().equals("Cadena") && v.getIdentificador().equals(a)){
-                        //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
-                          RESULT = v.getValorString();
+                if(Puente.arrVariables.size() == 0){
+                    //JOptionPane.showMessageDialog(null,"es variable Archivo");
+                    String resultadoI = Puente.imprimirArchivo(a);
+                    RESULT = resultadoI;
+                }else{
+                    for(int i=0;i<Puente.arrVariables.size();i++){
+                        Variable v = (Variable)Puente.arrVariables.get(i);
+                        //JOptionPane.showMessageDialog(null, "Se buscara: "+ v.getTipo() + " y: " + v.getIdentificador() );
+                        if(v.getTipo().equals("Numerico") && v.getIdentificador().equals(a) ){
+                            //JOptionPane.showMessageDialog(null,"Se encontro variable y tiene valor:" + v.getValorInt());
+                            RESULT = Integer.toString(v.getValorInt());
+                        }else if(v.getTipo().equals("Double") && v.getIdentificador().equals(a)){
+                            //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                              RESULT = String.valueOf(v.getValorDouble());  
+                        }else if(v.getTipo().equals("Cadena") && v.getIdentificador().equals(a)){
+                            //JOptionPane.showMessageDialog(null,"Se encontro variable prom y tiene valor:" + v.getValorDouble());
+                              RESULT = v.getValorString();
+                        }
+                        else{
+                            //JOptionPane.showMessageDialog(null,"es variable Archivo 2");
+                            String resultadoI2=Puente.imprimirArchivo(a);
+                            RESULT = resultadoI2;
+                        }
                     }
                     
                 }
+                
             
               CUP$Sintactico2$result = parser.getSymbolFactory().newSymbol("VARIABLE",3, ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico2$stack.peek()), RESULT);
             }

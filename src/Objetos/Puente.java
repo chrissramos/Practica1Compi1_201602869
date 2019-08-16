@@ -56,7 +56,7 @@ public class Puente {
         //FALTA VACIAR VARIABLE IDTEMP CUANDO SE TERMINA DE CREAR LA VARIABLE ARCHIVO
     }
     public static void mostrarDatos(){
-        JOptionPane.showMessageDialog(null, "Arreglo claves tiene: "+arrClaves.size() );
+        //JOptionPane.showMessageDialog(null, "Arreglo claves tiene: "+arrClaves.size() );
         /*
         for (int i = 0; i < arrClaves.size(); i++) {
             Claves c = (Claves)arrClaves.get(i);
@@ -179,7 +179,7 @@ public class Puente {
     }
     
     public static String contarSi(String identificador,String clave,String operador, String valor){
-        JOptionPane.showMessageDialog(null, "Operador:" + operador + " valor:" + valor + " Clave:" + clave);
+        //JOptionPane.showMessageDialog(null, "Operador:" + operador + " valor:" + valor + " Clave:" + clave);
         int contadorSi = 0;
         String claveBien = clave.replace("\"", "");
         String resultado ="";
@@ -187,7 +187,7 @@ public class Puente {
         for (int i = 0; i < arrClaves.size(); i++) {
             Claves c = (Claves) arrClaves.get(i);
             if (c.getId().equals(identificador) && c.getClave().equals(claveBien) ) {
-                JOptionPane.showMessageDialog(null, "CONTAR SIiiii" + claveBien);
+                //JOptionPane.showMessageDialog(null, "CONTAR SIiiii" + claveBien);
                 //identificador = datos1
                 ArrayList listaC = c.getContenido();
                 //ArrayList contadorSi = new ArrayList();
@@ -244,6 +244,24 @@ public class Puente {
         //JOptionPane.showMessageDialog(null, "contadorrrr: " + resultado);
         return resultado;
     }
+    public static String imprimirArchivo(String identificador){
+        //JOptionPane.showMessageDialog(null,"IMPRIMIR ARCHIVO CLAVESS:  "+ arrClaves.size());
+        String resultado = "CLAVES = [";
+        int cantidadReg =0;
+        for (int i = 0; i < arrClaves.size(); i++) {
+            
+            Claves c = (Claves) arrClaves.get(i);
+            ArrayList listaC = c.getContenido();
+            //JOptionPane.showMessageDialog(null, "Id de C " + c.getId());
+            if (c.getId().equals(identificador)) {
+                resultado += "\"" + c.getClave()+  "\"" + ", ";
+                //JOptionPane.showMessageDialog(null,"LA CLAVEEEEEE:  "+ c.getClave());
+            }
+            cantidadReg = listaC.size();
+        }
+        resultado += "] \n Numero de Registros: " + Integer.toString(cantidadReg);
+        return resultado;
+    }
     public static String obtenerMostrar(int clave, int contenido){
         String contenidoTodo = "\n{";
         for (int i = 0; i < arrClaves.size(); i++) {
@@ -257,7 +275,7 @@ public class Puente {
         return contenidoTodo;
     }
     public static String obtenerSi(String identificador, String clave, String operador, String valor){
-        JOptionPane.showMessageDialog(null, "ObtenerSI con operador " + operador);
+        //JOptionPane.showMessageDialog(null, "ObtenerSI con operador " + operador);
         String resultado = "[";
         int indiceSi = 0;
         String claveSi = clave.replace("\"", "");
@@ -265,7 +283,7 @@ public class Puente {
             Claves c = (Claves) arrClaves.get(i);
             //JOptionPane.showMessageDialog(null,"LA CLAVEEEEEE:  "+ c.getClave());
             if(c.getId().equals(identificador) && c.getClave().equals(claveSi) ){
-                JOptionPane.showMessageDialog(null, "Entro A IF " + claveSi);
+               // JOptionPane.showMessageDialog(null, "Entro A IF " + claveSi);
                 ArrayList listaC = c.getContenido();
                 for (int j = 0; j < listaC.size(); j++) {
                     String valorString = (String) listaC.get(j);
@@ -325,8 +343,10 @@ public class Puente {
     }
     public static String promedio(String identificador, String cadena){
         ArrayList prom = new ArrayList();
+        String hola = "10.33";
         String resultado33= "";
         double promedioTotal = 0.0;
+        double datoAdentro = 0.0;
         int contadorArr =0;
         String clave = cadena.replace("\"", "");
         for (int i = 0; i <arrClaves.size(); i++) {
@@ -335,19 +355,22 @@ public class Puente {
                 ArrayList listaC = c.getContenido();
                 for (int j = 0; j < listaC.size(); j++) {
                     String datoS = (String) listaC.get(j);
-                    int datoint = Integer.parseInt(datoS);
-                    prom.add(datoint);
+                    double datoDentro = Double.parseDouble(datoS);
+                    //int datoint = Integer.parseInt(datoS);
+                    
+                    prom.add(datoDentro);
                 }
             }
         }
         if(prom.size()>0){
             for (int i = 0; i < prom.size(); i++) {
-                contadorArr += (int)prom.get(i);
+                contadorArr += (double)prom.get(i);
             }
             promedioTotal = (double)contadorArr/prom.size();
         }
         resultado33 = String.valueOf(promedioTotal);
         //JOptionPane.showMessageDialog(null,"PROMEDIO ENVIADO: " + resultado33 );
+        
         return resultado33;
     }
     
